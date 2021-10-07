@@ -7,8 +7,8 @@ public class Order {
     private Employee employee;
     private Date date;
 
-    public Order(Article arrayOfArticles[], Customer customer, Employee employee, Date date){
-        this.arrayOfArticles = arrayOfArticles;
+    public Order(ArrayList<CartDetails> arrayOfDetails, Customer customer, Employee employee, Date date){
+        this.arrayOfDetails = arrayOfDetails;
         this.customer = customer;
         this.employee = employee;
         this.date = date;
