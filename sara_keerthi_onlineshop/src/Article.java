@@ -6,10 +6,10 @@ public class Article {
     private String category;
     private String gender;
     private int inStock;
-    private int amountAdded;
+
 
     //constructor
-    public Article(String articleName, int IDarticle, float price, String color, String category, String gender, int inStock, int amountAdded){
+    public Article(String articleName, int IDarticle, float price, String color, String category, String gender, int inStock){
         this.articleName = articleName;
         this.IDarticle = IDarticle;
         this.price = price;
@@ -17,7 +17,6 @@ public class Article {
         this.category = category;
         this.gender = gender;
         this.inStock = inStock;
-        this.amountAdded = amountAdded;
     }
 
     public void setArticleName(String name){
@@ -38,7 +37,7 @@ public class Article {
     }
 
 
-    public void setprice(float price){
+    public  void setprice(float price){
         this.price = price;
     }
 
@@ -80,19 +79,6 @@ public class Article {
 
     public int getinStock(){
         return this.inStock;
-    }
-
-
-    public void setamountAdded(int amount){
-        this.amountAdded = amount;
-    }
-
-    public int getamountAdded(){
-        return this.amountAdded;
-    }
-
-    public float calculatePrice(){
-        return amountAdded * price;
     }
 
 }
