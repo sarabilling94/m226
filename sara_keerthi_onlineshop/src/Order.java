@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Order {
-    private Article arrayOfArticles[];
+    private ArrayList<CartDetails> arrayOfDetails;
     private Customer customer;
     private Employee employee;
     private Date date;

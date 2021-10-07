@@ -1,13 +1,13 @@
-import com.sun.xml.internal.bind.v2.model.core.ID;
+import java.util.ArrayList;
 
 public class Cart {
     private int IDcart;
-    private Article arrayOfArticles[];
+    private ArrayList<CartDetails> arrayOfCartDetails;
     private Customer customer;
 
-    public Cart(int IDcart, Article arrayOfArticles[]){
+    public Cart(int IDcart, ArrayList<CartDetails> arrayOfArticles){
         this.IDcart = IDcart;
-        this.arrayOfArticles = arrayOfArticles;
+        this.arrayOfCartDetails = arrayOfArticles;
 
     }
 

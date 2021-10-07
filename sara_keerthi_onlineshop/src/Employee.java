@@ -2,14 +2,18 @@ import java.util.Date;
 
 public class Employee extends User{
 
-
     private Date birthday;
     private String phone;
     private String gender;
     private boolean admin;
 
-    public Employee(int IDuser, String userName, String password, String firstName, String lastName, String adress, String email){
+    public Employee(int IDuser, String userName, String password, String firstName, String lastName, String adress, String email, Date birthday, String phone,
+                    String gender, boolean admin){
         super(IDuser, userName, password, firstName, lastName, adress, email);
+        this.birthday = birthday;
+        this.phone = phone;
+        this.gender = gender;
+        this.admin = admin;
     }
 
     public void setBirthday(Date birthday){
