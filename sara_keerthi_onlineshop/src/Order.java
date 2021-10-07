@@ -13,4 +13,20 @@ public class Order {
         this.employee = employee;
         this.date = date;
     }
+
+    public ArrayList<CartDetails> getArrayOfDetails() {
+        return arrayOfDetails;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public Date getDate() {
+        return date;
+    }
 }

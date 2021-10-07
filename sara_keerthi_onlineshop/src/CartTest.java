@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ class CartTest {
 
     CartDetails cartDetails1, cartDetails2, cartDetails3;
     Customer customer1;
-    @BeforeAll
+    @BeforeEach
     void setup(){
         Article article1 = new Article("Schuhe", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
         Article article2 = new Article("Kette", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
@@ -27,5 +28,7 @@ class CartTest {
         arrayOfCart.add(cartDetails3);
 
         Cart cart = new Cart(arrayOfCart, customer1);
+        Order one = cart.createOrder();
+        assertEquals(customer1, one.getCustomer());
     }
 }

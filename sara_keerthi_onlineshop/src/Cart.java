@@ -11,6 +11,13 @@ public class Cart {
         this.customer = customer;
     }
 
+    public ArrayList<CartDetails> getArrayOfCartDetails() {
+        return arrayOfCartDetails;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
 
     public Order createOrder(){
         return null;
