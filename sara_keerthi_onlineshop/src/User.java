@@ -4,7 +4,7 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private String adress;
+    private String address;
     private String email;
 
     public User(int IDuser, String userName, String password, String firstName, String lastName, String adress, String email){
@@ -13,7 +13,7 @@ public class User {
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.adress = adress;
+        this.address = adress;
         this.email = email;
 
     }
@@ -27,10 +27,7 @@ public class User {
         return this.IDuser;
     }
 
-    public void setuserName(String username){
-        this.userName = username
-;
-    }
+    public void setuserName(String username){ this.userName = username; }
 
     public String getuserName(){
         return this.userName;
@@ -61,11 +58,11 @@ public class User {
     }
 
     public void setadress(String adress){
-        this.adress = adress;
+        this.address = adress;
     }
 
     public String getadress(){
-        return this.adress;
+        return this.address;
     }
 
     public void setemail(String email){

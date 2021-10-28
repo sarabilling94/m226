@@ -8,6 +8,9 @@ public class Customer extends User {
 
     public Customer(int IDuser, String userName, String password, String firstName, String lastName, String adress, String email){
         super(IDuser, userName, password, firstName, lastName, adress, email);
+        this.birthday = birthday;
+        this.phone = phone;
+        this.gender = gender;
     }
 
     public void setBirthday(Date birthday){

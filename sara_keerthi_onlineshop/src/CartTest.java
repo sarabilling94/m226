@@ -8,13 +8,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CartTest {
 
+    Article article1, article2, article3;
     CartDetails cartDetails1, cartDetails2, cartDetails3;
     Customer customer1;
     @BeforeEach
     void setup(){
-        Article article1 = new Article("Schuhe", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
-        Article article2 = new Article("Kette", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
-        Article article3 = new Article("Kleid", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
+        article1 = new Article("Schuhe", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
+        article2 = new Article("Kette", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
+        article3 = new Article("Kleid", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
         cartDetails1 = new CartDetails(article1, 5);
         cartDetails2 = new CartDetails(article1, 10);
         cartDetails3 = new CartDetails(article1, 15);
