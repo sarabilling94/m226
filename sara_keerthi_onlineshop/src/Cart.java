@@ -16,5 +16,4 @@ public class Cart {
         Order order = new Order(this.arrayOfCartDetails, this.customer);
         return order;
     }
-
 }

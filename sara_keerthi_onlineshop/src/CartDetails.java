@@ -10,4 +10,8 @@ public class CartDetails {
     public Article getArticle(){
         return this.article;
     }
+
+    public int getAmount(){
+        return this.amount;
+    }
 }
