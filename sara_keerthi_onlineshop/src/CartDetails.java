@@ -6,4 +6,8 @@ public class CartDetails {
         this.article = article;
         this.amount = amount;
     }
+
+    public Article getArticle(){
+        return this.article;
+    }
 }
