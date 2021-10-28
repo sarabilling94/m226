@@ -20,7 +20,8 @@ public class Cart {
     }
 
     public Order createOrder(){
-        return null;
+        Order order = new Order(this.arrayOfCartDetails, this.customer);
+        return order;
     }
 
 }

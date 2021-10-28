@@ -4,14 +4,19 @@ import java.util.Date;
 public class Order {
     private ArrayList<CartDetails> arrayOfDetails;
     private Customer customer;
-    private Employee employee;
-    private Date date;
+    private Date date = java.util.Calendar.getInstance().getTime();
 
-    public Order(ArrayList<CartDetails> arrayOfDetails, Customer customer, Employee employee, Date date){
+    public Order(ArrayList<CartDetails> arrayOfDetails, Customer customer){
         this.arrayOfDetails = arrayOfDetails;
         this.customer = customer;
-        this.employee = employee;
-        this.date = date;
+    }
+
+    public String generateBill(){
+        int total = 0;
+        arrayOfDetails.forEach(details -> {
+            total += details.get
+        });
+
     }
 
     public ArrayList<CartDetails> getArrayOfDetails() {
