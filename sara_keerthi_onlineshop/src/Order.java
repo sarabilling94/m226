@@ -18,4 +18,20 @@ public class Order {
         });
 
     }
+
+    public ArrayList<CartDetails> getArrayOfDetails() {
+        return arrayOfDetails;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public Date getDate() {
+        return date;
+    }
 }
