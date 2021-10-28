@@ -16,4 +16,8 @@ public class Cart {
         Order order = new Order(this.arrayOfCartDetails, this.customer);
         return order;
     }
+
+    public void addItems(Article article, int amount){
+        arrayOfCartDetails.add(new CartDetails(article, amount));
+    }
 }
