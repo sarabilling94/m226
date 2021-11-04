@@ -24,10 +24,6 @@ public class Order {
         return customer;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
     public Date getDate() {
         return date;
     }

@@ -74,7 +74,11 @@ public class Article {
 
 
     public void setinStock(int amount){
-        this.inStock = amount;
+        if(amount < 0){
+            System.out.println("Amount can't be negative.");
+            return;
+        }
+            this.inStock = amount;
     }
 
     public int getinStock(){
