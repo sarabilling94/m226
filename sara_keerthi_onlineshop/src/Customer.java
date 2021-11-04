@@ -45,6 +45,4 @@ public class Customer extends User {
         setphone(phone);
         setgender(gender);
     }
-
-
 }

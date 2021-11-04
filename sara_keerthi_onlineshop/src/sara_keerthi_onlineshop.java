@@ -13,13 +13,19 @@ public class sara_keerthi_onlineshop {
 
         Cart cart = new Cart(new ArrayList<CartDetails>(), customer );
 
-        Article article = new Article("test", 1, 2, "red", "test",
+        Article article = new Article("Hose", 1, 2, "red", "test",
+                "test", 10);
+
+        Article article2 = new Article("Shirt", 1, 2, "red", "test",
                 "test", 10);
 
         cart.addItems(article, 2);
+        cart.addItems(article2, 3);
 
         CheckoutController checkout = new CheckoutController();
-        checkout.CheckOut(cart);
+        String confirmation = checkout.CheckOut(cart);
+
+        System.out.println(confirmation);
 
     }
 }
