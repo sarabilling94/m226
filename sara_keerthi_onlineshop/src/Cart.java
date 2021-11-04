@@ -18,6 +18,13 @@ public class Cart {
     }
 
     public void addItems(Article article, int amount){
-        arrayOfCartDetails.add(new CartDetails(article, amount));
+        int newInStock = article.getinStock() - amount;
+        if(newInStock >= 0){
+            arrayOfCartDetails.add(new CartDetails(article, amount));
+            article.setinStock(newInStock);
+        }
+        else{
+            System.out.println("Not enough in stock. There are only " + article.getinStock() + " left.");
+        }
     }
 }

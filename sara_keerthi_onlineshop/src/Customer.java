@@ -6,7 +6,8 @@ public class Customer extends User {
     private String phone;
     private String gender;
 
-    public Customer(int IDuser, String userName, String password, String firstName, String lastName, String adress, String email){
+    public Customer(int IDuser, String userName, String password, String firstName,
+                    String lastName, String adress, String email){
         super(IDuser, userName, password, firstName, lastName, adress, email);
     }
 
@@ -35,7 +36,8 @@ public class Customer extends User {
         return this.gender;
     }
 
-    public void register(Date birthday, String phone, String gender){
+    public void register(String userName, String password, String firstName, String lastName,
+                         String adress, String email,Date birthday, String phone, String gender){
         setBirthday(birthday);
         setphone(phone);
         setgender(gender);
