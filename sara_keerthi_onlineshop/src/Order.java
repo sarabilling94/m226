@@ -12,11 +12,8 @@ public class Order {
     }
 
     public String generateBill(){
-        int total = 0;
-        arrayOfDetails.forEach(details -> {
-            total += details.get
-        });
-
+        int total = arrayOfDetails.stream().mapToInt(details -> (int) (details.getArticle().getPrice() * details.getAmount())).sum();
+    return "Your total is: " + total;
     }
 
     public ArrayList<CartDetails> getArrayOfDetails() {

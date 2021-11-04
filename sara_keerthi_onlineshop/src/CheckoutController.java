@@ -1,6 +1,8 @@
 public class CheckoutController {
 
-    public Order checkout(User user, Cart cart){
-    return  null;
+    public void CheckOut(Cart cart){
+        Order order = cart.createOrder();
+        System.out.println(order.generateBill());
     }
+
 }

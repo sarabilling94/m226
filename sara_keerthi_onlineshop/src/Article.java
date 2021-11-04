@@ -37,11 +37,11 @@ public class Article {
     }
 
 
-    public  void setprice(float price){
+    public  void setPrice(float price){
         this.price = price;
     }
 
-    public float getprice(){
+    public float getPrice(){
         return this.price;
     }
 
