@@ -1,8 +1,13 @@
 public class CheckoutController {
 
-    public void CheckOut(Cart cart){
+    public String CheckOut(Cart cart){
+        if(cart.getArrayOfCartDetails().size() < 1){
+            System.out.println("Cart is empty");
+            return null;
+        }
         Order order = cart.createOrder();
-        System.out.println(order.generateBill());
+        String bill = order.generateBill();
+        return "Checkout successful.\n" + bill;
     }
 
 }

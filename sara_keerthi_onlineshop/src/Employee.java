@@ -1,13 +1,13 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Employee extends User{
 
-    private Date birthday;
+    private LocalDate birthday;
     private String phone;
     private String gender;
     private boolean admin;
 
-    public Employee(int IDuser, String userName, String password, String firstName, String lastName, String adress, String email, Date birthday, String phone,
+    public Employee(int IDuser, String userName, String password, String firstName, String lastName, String adress, String email, LocalDate birthday, String phone,
                     String gender, boolean admin){
         super(IDuser, userName, password, firstName, lastName, adress, email);
         this.birthday = birthday;
@@ -16,11 +16,11 @@ public class Employee extends User{
         this.admin = admin;
     }
 
-    public void setBirthday(Date birthday){
+    public void setBirthday(LocalDate birthday){
         this.birthday = birthday;
     }
 
-    public Date getBirthday(){
+    public LocalDate getBirthday(){
         return this.birthday;
     }
 
@@ -47,12 +47,5 @@ public class Employee extends User{
 
     public boolean getAdmin(){
         return this.admin;
-    }
-
-    public void register(Date birthday, String phone, String gender, boolean admin){
-        setBirthday(birthday);
-        setphone(phone);
-        setgender(gender);
-        setAdmin(admin);
     }
 }
