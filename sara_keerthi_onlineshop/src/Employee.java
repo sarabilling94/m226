@@ -48,11 +48,4 @@ public class Employee extends User{
     public boolean getAdmin(){
         return this.admin;
     }
-
-    public void register(LocalDate birthday, String phone, String gender, boolean admin){
-        setBirthday(birthday);
-        setphone(phone);
-        setgender(gender);
-        setAdmin(admin);
-    }
 }

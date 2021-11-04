@@ -15,7 +15,7 @@ public class Order {
         int total = arrayOfDetails.stream().mapToInt(details -> (int) (details.getArticle().getPrice() * details.getAmount())).sum();
         String bill = "";
         for(int i = 0; i < arrayOfDetails.size(); i++){
-            bill += bill + "Article: " + arrayOfDetails.get(i).getArticle().getArticleName() + " | Amount: " + arrayOfDetails.get(i).getAmount() +"\n";
+            bill = bill + "Article: " + arrayOfDetails.get(i).getArticle().getArticleName() + " | Amount: " + arrayOfDetails.get(i).getAmount() +"\n";
         }
          bill  += "Total: " + total + " $";
     return bill;

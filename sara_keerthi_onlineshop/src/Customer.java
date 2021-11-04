@@ -39,10 +39,4 @@ public class Customer extends User {
         return this.gender;
     }
 
-    public void register(String userName, String password, String firstName, String lastName,
-                         String adress, String email,Date birthday, String phone, String gender){
-        setBirthday(birthday);
-        setphone(phone);
-        setgender(gender);
-    }
 }
