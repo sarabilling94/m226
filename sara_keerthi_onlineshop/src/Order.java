@@ -13,7 +13,12 @@ public class Order {
 
     public String generateBill(){
         int total = arrayOfDetails.stream().mapToInt(details -> (int) (details.getArticle().getPrice() * details.getAmount())).sum();
-    return "Your total is: " + total;
+        String bill = "";
+        for(int i = 0; i < arrayOfDetails.size(); i++){
+            bill = bill + "Article: " + arrayOfDetails.get(i).getArticle().getArticleName() + " | Amount: " + arrayOfDetails.get(i).getAmount() +"\n";
+        }
+         bill  += "Total: " + total + " $";
+    return bill;
     }
 
     public ArrayList<CartDetails> getArrayOfDetails() {

@@ -73,6 +73,7 @@ public class Article {
     }
 
 
+    //sets how many of this article are in stock. can't be negative
     public void setinStock(int amount){
         if(amount < 0){
             System.out.println("Amount can't be negative.");
