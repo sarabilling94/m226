@@ -24,4 +24,14 @@ public class Cart {
         return order;
     }
 
+    public void addItems(Article article, int amount){
+        int newInStock = article.getinStock() - amount;
+        if(newInStock >= 0){
+            arrayOfCartDetails.add(new CartDetails(article, amount));
+            article.setinStock(newInStock);
+        }
+        else{
+            System.out.println("Not enough in stock. There are only " + article.getinStock() + " left.");
+        }
+    }
 }
