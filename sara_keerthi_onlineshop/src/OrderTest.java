@@ -18,7 +18,7 @@ class OrderTest {
 
     @BeforeEach
     void setup(){
-        article1 = new Article("Schuhe", 1, 1.00f, "blau", "Schuhe", "weiblich", 2);
+        article1 = new Article("Schuhe", 1, 1.00f, "blau", "Schuhe", "weiblich", 5);
         article2 = new Article("Kette", 2, 1.00f, "blau", "Schuhe", "weiblich", 10);
         article3 = new Article("Armband", 3, 1.00f, "blau", "Schuhe", "weiblich", 15);
         cartDetails1 = new CartDetails(article1, 5);
@@ -47,6 +47,12 @@ class OrderTest {
 
         //sollte true sein
         assertEquals(customer1, two.getCustomer());
+        assertEquals(arrayOfCart, two.getArrayOfDetails());
+        assertEquals(java.util.Calendar.getInstance().getTime().toString(), two.getDate().toString());
+        assertEquals("Article: Schuhe | Amount: 5\n" +
+                "Article: Kette | Amount: 10\n" +
+                "Article: Armband | Amount: 15\n" +
+                "Total: 30 $", two.generateBill());
     }
 
 }
