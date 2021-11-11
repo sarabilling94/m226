@@ -12,7 +12,7 @@ public class Order {
         this.customer = customer;
     }
 
-    //* generates a bill with the articles and the total price*/
+    /** generates a bill with the articles and the total price*/
     public String generateBill(){
         int total = arrayOfDetails.stream().mapToInt(details -> (int) (details.getArticle().getPrice() * details.getAmount())).sum();
         String bill = "";
