@@ -1,5 +1,6 @@
 import java.util.Date;
 
+//for customer registration
 public class Customer extends User {
 
     private Date birthday;
