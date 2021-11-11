@@ -20,7 +20,7 @@ class OrderTest {
     void setup(){
         article1 = new Article("Schuhe", 1, 1.00f, "blau", "Schuhe", "weiblich", 2);
         article2 = new Article("Kette", 2, 1.00f, "blau", "Schuhe", "weiblich", 10);
-        article2 = new Article("Armband", 3, 1.00f, "blau", "Schuhe", "weiblich", 15);
+        article3 = new Article("Armband", 3, 1.00f, "blau", "Schuhe", "weiblich", 15);
         cartDetails1 = new CartDetails(article1, 5);
         cartDetails2 = new CartDetails(article2, 10);
         cartDetails3 = new CartDetails(article3, 15);
@@ -46,7 +46,7 @@ class OrderTest {
         two.generateBill();
 
         //sollte true sein
-        assertEquals("Article: ", two.generateBill());
+        assertEquals(customer1, two.getCustomer());
     }
 
 }
