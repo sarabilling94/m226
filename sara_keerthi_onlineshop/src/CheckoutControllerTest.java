@@ -7,12 +7,13 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CartTest {
+class CheckoutControllerTest {
     // Hier werden die Setups gemacht damit wir die unter Tests ausführen können
     Article article1, article2, article3;
     CartDetails cartDetails1, cartDetails2, cartDetails3;
     Customer customer1;
     Cart cart;
+    Order one;
     ArrayList<CartDetails> arrayOfCart;
 
     @BeforeEach
@@ -33,36 +34,15 @@ class CartTest {
 
         //neue Cart erstellt. Pro Cart ein Customer
         cart = new Cart(arrayOfCart, customer1);
-    }
 
-    // Hier fängt dann testing an für Methode createOrder()
-    @org.junit.jupiter.api.Test
-    void createOrderTest() {
         //neue Order erstellt
-        Order one = cart.createOrder();
-
-        //sollte alles true sein
-        assertEquals(customer1, one.getCustomer());
-        assertEquals(article1, one.getArrayOfDetails().get(0).getArticle());
-        assertEquals(article2, one.getArrayOfDetails().get(1).getArticle());
-        assertEquals(article3, one.getArrayOfDetails().get(2).getArticle());
-        assertEquals(5, one.getArrayOfDetails().get(0).getAmount());
-        assertEquals(10, one.getArrayOfDetails().get(1).getAmount());
-        assertEquals(15, one.getArrayOfDetails().get(2).getAmount());
+        one = cart.createOrder();
     }
 
-    // Hier fängt dann testing an für Methode addItems()
+    // Hier fängt dann testing an für Methode checkOut()
     @org.junit.jupiter.api.Test
-    void addItemsTest() {
-        //addItems aufgerufen
-        cart.addItems(article1, 5);
-        cart.addItems(article2,10);
-        cart.addItems(article3, 15);
-
-        //alles sollte true sein
-        assertEquals(5, article1.getinStock());
-        assertEquals(0, article2.getinStock());
-        assertEquals("Not enough in stock. There are only 10 left.", cart.addItems(article3, 15));
+    void checkOutTest() {
+        //nicht testen bringt nichts
     }
 
 }
