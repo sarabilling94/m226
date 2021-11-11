@@ -46,7 +46,7 @@ class OrderTest {
         two.generateBill();
 
         //sollte true sein
-        assertEquals("Your total is: 30.00", two.generateBill());
+        assertEquals("Article: ", two.generateBill());
     }
 
 }
