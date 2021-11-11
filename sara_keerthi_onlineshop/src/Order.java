@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
+/** needed for checkout */
 public class Order {
     private ArrayList<CartDetails> arrayOfDetails;
     private Customer customer;
@@ -11,6 +12,7 @@ public class Order {
         this.customer = customer;
     }
 
+    //* generates a bill with the articles and the total price*/
     public String generateBill(){
         int total = arrayOfDetails.stream().mapToInt(details -> (int) (details.getArticle().getPrice() * details.getAmount())).sum();
         String bill = "";
