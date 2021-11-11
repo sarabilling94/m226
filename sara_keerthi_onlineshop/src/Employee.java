@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 
+/** for employee registration */
 public class Employee extends User{
 
     private LocalDate birthday;

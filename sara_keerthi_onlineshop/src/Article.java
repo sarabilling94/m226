@@ -8,7 +8,7 @@ public class Article {
     private int inStock;
 
 
-    //constructor
+    /** constructor */
     public Article(String articleName, int IDarticle, float price, String color, String category, String gender, int inStock){
         this.articleName = articleName;
         this.IDarticle = IDarticle;
@@ -73,7 +73,7 @@ public class Article {
     }
 
 
-    //sets how many of this article are in stock. can't be negative
+    /** sets how many of this article are in stock. can't be negative */
     public void setinStock(int amount){
         if(amount < 0){
             System.out.println("Amount can't be negative.");
