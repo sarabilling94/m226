@@ -1,10 +1,7 @@
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CartTest {
@@ -17,6 +14,7 @@ class CartTest {
 
     @BeforeEach
     void setup(){
+        //mock articles, cartdetails
         article1 = new Article("Schuhe", 1, 250.00f, "blau", "Schuhe", "weiblich", 10);
         article2 = new Article("Kette", 2, 250.00f, "blau", "Schuhe", "weiblich", 10);
         article3 = new Article("Kleid", 3, 250.00f, "blau", "Schuhe", "weiblich", 10);
@@ -42,6 +40,7 @@ class CartTest {
         Order one = cart.createOrder();
 
         //sollte alles true sein
+        //details nicht testen
         assertEquals(customer1, one.getCustomer());
         assertEquals(article1, one.getArrayOfDetails().get(0).getArticle());
         assertEquals(article2, one.getArrayOfDetails().get(1).getArticle());
