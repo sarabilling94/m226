@@ -8,8 +8,8 @@ class CartDetailsTest {
 
     @Mock
     Article article;
-    @Mock
-    int amount;
+
+    int amount = 3;
 
     CartDetails details;
     @BeforeEach
