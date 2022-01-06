@@ -1,19 +1,30 @@
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class OrderTest {
     // Hier werden die Setups gemacht damit wir die unter Tests ausführen können
+    @Mock
     Article article1, article2, article3;
+    @Mock
     CartDetails cartDetails1, cartDetails2, cartDetails3;
+    @Mock
     Customer customer1;
+    @Mock
     Cart cart;
+    @Mock
     Order two;
+    @Mock
     ArrayList<CartDetails> arrayOfCart;
 
     @BeforeEach
@@ -43,6 +54,12 @@ class OrderTest {
     // Hier fängt dann testing an für Methode generateBill()
     @org.junit.jupiter.api.Test
     void generateBillTest() {
+        when(article1.getArticleName()).thenReturn("Schuhe");
+        when(article2.getArticleName()).thenReturn("Kette");
+        when(article3.getArticleName()).thenReturn("Armband");
+        when(cartDetails1.getAmount()).thenReturn(5);
+        when(cartDetails2.getAmount()).thenReturn(10);
+        when(cartDetails3.getAmount()).thenReturn(15);
         two.generateBill();
 
         //sollte true sein
