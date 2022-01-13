@@ -1,5 +1,7 @@
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
+package unittesting;
+
+import models.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -7,8 +9,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -43,10 +43,10 @@ class OrderTest {
         arrayOfCart.add(cartDetails2);
         arrayOfCart.add(cartDetails3);
 
-        //neuer Cart erstellt. Pro Cart ein Customer
+        //neuer models.Cart erstellt. Pro models.Cart ein models.Customer
         cart = new Cart(arrayOfCart, customer1);
 
-        //neuer Order
+        //neuer models.Order
         two = cart.createOrder();
     }
 
@@ -63,12 +63,12 @@ class OrderTest {
         two.generateBill();
 
         //sollte true sein
-        assertEquals(customer1, two.getCustomer());
-        assertEquals(arrayOfCart, two.getArrayOfDetails());
-        assertEquals(java.util.Calendar.getInstance().getTime().toString(), two.getDate().toString());
-        assertEquals("Article: Schuhe | Amount: 5\n" +
-                "Article: Kette | Amount: 10\n" +
-                "Article: Armband | Amount: 15\n" +
+        Assertions.assertEquals(customer1, two.getCustomer());
+        Assertions.assertEquals(arrayOfCart, two.getArrayOfDetails());
+        Assertions.assertEquals(java.util.Calendar.getInstance().getTime().toString(), two.getDate().toString());
+        Assertions.assertEquals("models.Article: Schuhe | Amount: 5\n" +
+                "models.Article: Kette | Amount: 10\n" +
+                "models.Article: Armband | Amount: 15\n" +
                 "Total: 30 $", two.generateBill());
     }
 

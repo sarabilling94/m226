@@ -1,3 +1,5 @@
+package models;
+
 /** needed to store several units of an article in the cart */
 public class CartDetails {
     private Article article;

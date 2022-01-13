@@ -6861,7 +6861,7 @@
 											"top": 295,
 											"width": 135,
 											"height": 13,
-											"text": "User"
+											"text": "models.User"
 										},
 										{
 											"_type": "LabelView",
@@ -7213,7 +7213,7 @@
 											"top": 71,
 											"width": 118,
 											"height": 13,
-											"text": "Customer"
+											"text": "models.Customer"
 										},
 										{
 											"_type": "LabelView",
@@ -7585,7 +7585,7 @@
 											"top": 591,
 											"width": 102,
 											"height": 13,
-											"text": "Employee"
+											"text": "models.Employee"
 										},
 										{
 											"_type": "LabelView",
@@ -7884,7 +7884,7 @@
 											"top": 343,
 											"width": 110,
 											"height": 13,
-											"text": "Order"
+											"text": "models.Order"
 										},
 										{
 											"_type": "LabelView",
@@ -8166,7 +8166,7 @@
 											"top": 391,
 											"width": 126,
 											"height": 13,
-											"text": "Article"
+											"text": "models.Article"
 										},
 										{
 											"_type": "LabelView",
@@ -8501,7 +8501,7 @@
 											"top": 111,
 											"width": 126,
 											"height": 13,
-											"text": "Cart"
+											"text": "models.Cart"
 										},
 										{
 											"_type": "LabelView",
@@ -8573,7 +8573,7 @@
 											"top": 134,
 											"width": 126,
 											"height": 13,
-											"text": "-Customer customer",
+											"text": "-models.Customer customer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -9786,7 +9786,7 @@
 											"top": 87,
 											"width": 167,
 											"height": 13,
-											"text": "CartDetails"
+											"text": "models.CartDetails"
 										},
 										{
 											"_type": "LabelView",
@@ -9858,7 +9858,7 @@
 											"top": 110,
 											"width": 167,
 											"height": 13,
-											"text": "-article: Article",
+											"text": "-article: models.Article",
 											"horizontalAlignment": 0
 										},
 										{
@@ -9893,7 +9893,7 @@
 											"top": 140,
 											"width": 167,
 											"height": 13,
-											"text": "+cart: Cart",
+											"text": "+cart: models.Cart",
 											"horizontalAlignment": 0
 										}
 									],
@@ -10788,7 +10788,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF7ybr3J/2NiBI="
 					},
-					"name": "User",
+					"name": "models.User",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -10895,7 +10895,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF7ybr3J/2NiBI="
 					},
-					"name": "Customer",
+					"name": "models.Customer",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -11026,7 +11026,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF7ybr3J/2NiBI="
 					},
-					"name": "Employee",
+					"name": "models.Employee",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -11117,7 +11117,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF7ybr3J/2NiBI="
 					},
-					"name": "Order",
+					"name": "models.Order",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -11251,7 +11251,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF7ybr3J/2NiBI="
 					},
-					"name": "Article",
+					"name": "models.Article",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -11529,7 +11529,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF7ybr3J/2NiBI="
 					},
-					"name": "Cart",
+					"name": "models.Cart",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -11626,7 +11626,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF7yb2HbP56M64="
 							},
-							"name": "Customer customer",
+							"name": "models.Customer customer",
 							"visibility": "private"
 						},
 						{
@@ -11683,7 +11683,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF7ybr3J/2NiBI="
 					},
-					"name": "Article"
+					"name": "models.Article"
 				},
 				{
 					"_type": "UMLClass",
@@ -11691,7 +11691,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF7ybr3J/2NiBI="
 					},
-					"name": "CartDetails",
+					"name": "models.CartDetails",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",

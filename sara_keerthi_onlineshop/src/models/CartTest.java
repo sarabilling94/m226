@@ -1,3 +1,5 @@
+package models;
+
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
@@ -29,14 +31,14 @@ class CartTest {
         arrayOfCart.add(cartDetails2);
         arrayOfCart.add(cartDetails3);
 
-        //neue Cart erstellt. Pro Cart ein Customer
+        //neue models.Cart erstellt. Pro models.Cart ein models.Customer
         cart = new Cart(arrayOfCart, customer1);
     }
 
     // Hier fängt dann testing an für Methode createOrder()
     @org.junit.jupiter.api.Test
     void createOrderTest() {
-        //neue Order erstellt
+        //neue models.Order erstellt
         Order one = cart.createOrder();
 
         //sollte alles true sein

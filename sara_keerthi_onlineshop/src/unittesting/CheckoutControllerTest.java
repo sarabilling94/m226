@@ -1,14 +1,12 @@
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
+package unittesting;
+
+import models.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 class CheckoutControllerTest {
@@ -34,10 +32,10 @@ class CheckoutControllerTest {
         arrayOfCart.add(cartDetails2);
         arrayOfCart.add(cartDetails3);
 
-        //neue Cart erstellt. Pro Cart ein Customer
+        //neue models.Cart erstellt. Pro models.Cart ein models.Customer
         cart = new Cart(arrayOfCart, customer1);
 
-        //neue Order erstellt
+        //neue models.Order erstellt
         one = cart.createOrder();
     }
 

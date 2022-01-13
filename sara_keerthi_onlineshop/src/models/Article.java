@@ -1,3 +1,5 @@
+package models;
+
 public class Article {
     private String articleName;
     private int IDarticle;

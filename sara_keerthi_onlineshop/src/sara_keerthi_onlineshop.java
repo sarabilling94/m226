@@ -1,3 +1,8 @@
+import models.Article;
+import models.Cart;
+import models.CheckoutController;
+import models.Customer;
+
 import java.util.ArrayList;
 
 public class sara_keerthi_onlineshop {
