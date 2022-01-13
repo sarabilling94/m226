@@ -1,3 +1,5 @@
+package models;
+
 import java.util.ArrayList;
 
 /** the customers cart that contains the chosen articles */

@@ -1,3 +1,5 @@
+package models;
+
 //* superclass for customer and employee class*/
 public class User {
     private int IDuser;
