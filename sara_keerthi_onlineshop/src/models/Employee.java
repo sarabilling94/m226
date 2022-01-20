@@ -3,16 +3,15 @@ package models;
 import java.time.LocalDate;
 
 /** for employee registration */
-public class Employee extends User{
+public class Employee{
 
+    private User user;
     private LocalDate birthday;
     private String phone;
     private String gender;
     private boolean admin;
 
-    public Employee(int IDuser, String userName, String password, String firstName, String lastName, String adress, String email, LocalDate birthday, String phone,
-                    String gender, boolean admin){
-        super(IDuser, userName, password, firstName, lastName, adress, email);
+    public Employee(User user, LocalDate birthday, String phone, String gender, boolean admin){
         this.birthday = birthday;
         this.phone = phone;
         this.gender = gender;

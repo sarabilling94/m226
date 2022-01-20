@@ -3,15 +3,15 @@ package models;
 import java.util.Date;
 
 /** for customer registration */
-public class Customer extends User {
+public class Customer{
 
+    private User user;
     private Date birthday;
     private String phone;
     private String gender;
 
-    public Customer(int IDuser, String userName, String password, String firstName,
-                    String lastName, String adress, String email){
-        super(IDuser, userName, password, firstName, lastName, adress, email);
+    public Customer(User user, Date birthday, String phone, String gender){
+        this.user = user;
         this.birthday = birthday;
         this.phone = phone;
         this.gender = gender;
@@ -42,4 +42,11 @@ public class Customer extends User {
         return this.gender;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

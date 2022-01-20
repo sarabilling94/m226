@@ -11,9 +11,9 @@ abstract public class User {
     private String email;
 
 
-    public abstract void setIDuser(int id);
+    //public abstract void setIDuser(int id);
 
-    public abstract int getIDuser();
+    //public abstract int getIDuser();
 
     public abstract void setuserName(String username);
 
