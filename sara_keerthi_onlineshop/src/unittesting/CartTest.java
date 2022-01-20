@@ -72,18 +72,22 @@ class CartTest {
     @org.junit.jupiter.api.Test
     void addItemsTest() {
 
-        when(article1.)
-        when(article1.getinStock()).thenReturn(5);
-        when(article2.getinStock()).thenReturn(0);
+        when(article1.getinStock()).thenReturn(10);
+        when(article2.getinStock()).thenReturn(10);
+        when(article3.getinStock()).thenReturn(10);
+
         //addItems aufgerufen
-        cart.addItems(article1, 5);
-        cart.addItems(article2,10);
-        cart.addItems(article3, 15);
+        //cart.addItems(article1, 5);
+        //cart.addItems(article2,10);
+        //cart.addItems(article3, 15);
 
         //alles sollte true sein
-        assertEquals(5, article1.getinStock());
-        assertEquals(0, article2.getinStock());
+        assertEquals(10, article1.getinStock());
+        assertEquals(10, article2.getinStock());
+
         assertEquals("Not enough in stock. There are only 10 left.", cart.addItems(article3, 15));
+        assertEquals("Articles added.", cart.addItems(article1, 5));
+        assertEquals("Articles added.", cart.addItems(article2, 10));
     }
 
 }
