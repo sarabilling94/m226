@@ -77,6 +77,37 @@ public class User_JdbcImpl extends User {
         throw new RuntimeException("Not implemented yet");
     }
 
+    @Override
+    public String getemail() {
+        return null;
+    }
+
+    @Override
+    public void setemail(String email) {
+        throw new RuntimeException("Not implemented yet");
+    }
+
+    @Override
+    public String getuserName() {
+        return null;
+    }
+
+    @Override
+    public void setuserName(String username) {
+        throw new RuntimeException("Not implemented yet");
+    }
+
+    @Override
+    public String getpassword() {
+        return null;
+    }
+
+    @Override
+    public void setpassword(String password) {
+        throw new RuntimeException("Not implemented yet");
+    }
+
+
 
     @Override
     public void delete() {
@@ -92,12 +123,14 @@ public class User_JdbcImpl extends User {
 
     }
 
+    //not implemented
+    @Override
+    public boolean verifyLogin(String username, String password) {
+        return true;
+    }
+
     public int getIDuser() {
         return IDuser;
     }
 
-    //not implemented
-    public boolean verifyLogin(){
-        return true;
-    }
 }

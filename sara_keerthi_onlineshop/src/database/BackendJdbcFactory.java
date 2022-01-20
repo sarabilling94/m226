@@ -2,6 +2,9 @@ package database;
 
 import models.User;
 import models.User_InMemoryImpl;
+import models.User_JdbcImpl;
+
+import java.sql.SQLException;
 
 /**
  * Singeton Class for Jdbc Factory
@@ -13,8 +16,8 @@ public class BackendJdbcFactory extends BackendFactory {
         return factory;
     }
 
-    public User createUser(int IDuser, String userName, String password, String firstName, String lastName, String address, String email){
-        return new User_JdbcImpl(IDuser, userName, password, firstName, lastName, address, email);
+    public User createUser(String vorname, String nachname, String adresse, String email, String username, String passwort) throws SQLException {
+        return new User_JdbcImpl(vorname, nachname, adresse, email, username, passwort);
     }
 
     //ex from tourenplaner
