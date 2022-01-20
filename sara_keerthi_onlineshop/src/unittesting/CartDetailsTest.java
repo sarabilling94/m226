@@ -17,10 +17,11 @@ class CartDetailsTest {
     Article article;
 
     int amount = 3;
-
     CartDetails details;
+
     @BeforeEach
     void setup(){
+
         details = new CartDetails(article, amount);
     }
 
@@ -28,7 +29,6 @@ class CartDetailsTest {
     void getArticleTest() {
         Article actualArticle = details.getArticle();
         int actualAmount = details.getAmount();
-
 
         Assertions.assertEquals(article, actualArticle);
         assertEquals(amount, actualAmount);

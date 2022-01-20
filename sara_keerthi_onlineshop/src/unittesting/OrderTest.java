@@ -20,23 +20,20 @@ class OrderTest {
     CartDetails cartDetails1, cartDetails2, cartDetails3;
     @Mock
     Customer customer1;
-    @Mock
+
     Cart cart;
-    @Mock
     Order two;
-    @Mock
     ArrayList<CartDetails> arrayOfCart;
 
     @BeforeEach
     void setup(){
-        article1 = new Article("Schuhe", 1, 1.00f, "blau", "Schuhe", "weiblich", 5);
-        article2 = new Article("Kette", 2, 1.00f, "blau", "Schuhe", "weiblich", 10);
-        article3 = new Article("Armband", 3, 1.00f, "blau", "Schuhe", "weiblich", 15);
-        cartDetails1 = new CartDetails(article1, 5);
-        cartDetails2 = new CartDetails(article2, 10);
-        cartDetails3 = new CartDetails(article3, 15);
-        customer1 = new Customer(1, "Muster", "muster", "Muster", "Meier", "Schulstrasse 3a", "hdgcfjl@hotmail.com");
-
+//        article1 = new Article("Schuhe", 1, 1.00f, "blau", "Schuhe", "weiblich", 5);
+//        article2 = new Article("Kette", 2, 1.00f, "blau", "Schuhe", "weiblich", 10);
+//        article3 = new Article("Armband", 3, 1.00f, "blau", "Schuhe", "weiblich", 15);
+//        cartDetails1 = new CartDetails(article1, 5);
+//        cartDetails2 = new CartDetails(article2, 10);
+//        cartDetails3 = new CartDetails(article3, 15);
+//        customer1 = new Customer(1, "Muster", "muster", "Muster", "Meier", "Schulstrasse 3a", "hdgcfjl@hotmail.com");
         // ArrayList erstellt, in dieser ArrayList wird dann die Artikel hinzugefügt
         arrayOfCart = new ArrayList<>();
         arrayOfCart.add(cartDetails1);
@@ -60,6 +57,12 @@ class OrderTest {
         when(cartDetails1.getAmount()).thenReturn(5);
         when(cartDetails2.getAmount()).thenReturn(10);
         when(cartDetails3.getAmount()).thenReturn(15);
+        when(cartDetails1.getArticle()).thenReturn(article1);
+        when(cartDetails2.getArticle()).thenReturn(article2);
+        when(cartDetails3.getArticle()).thenReturn(article3);
+        when(article1.getPrice()).thenReturn(1.00f);
+        when(article2.getPrice()).thenReturn(1.00f);
+        when(article3.getPrice()).thenReturn(1.00f);
         two.generateBill();
 
         //sollte true sein

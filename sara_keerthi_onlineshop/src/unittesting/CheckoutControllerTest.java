@@ -17,20 +17,18 @@ class CheckoutControllerTest {
     CartDetails cartDetails1, cartDetails2, cartDetails3;
     @Mock
     Customer customer1;
-    @Mock
+
     Cart cart;
-    @Mock
     Order one;
-    @Mock
     ArrayList<CartDetails> arrayOfCart;
 
     @BeforeEach
     void setup(){
 
         // ArrayList erstellt, in dieser ArrayList wird dann die Artikel hinzugefügt
-        arrayOfCart.add(cartDetails1);
-        arrayOfCart.add(cartDetails2);
-        arrayOfCart.add(cartDetails3);
+//        arrayOfCart.add(cartDetails1);
+//        arrayOfCart.add(cartDetails2);
+//        arrayOfCart.add(cartDetails3);
 
         //neue models.Cart erstellt. Pro models.Cart ein models.Customer
         cart = new Cart(arrayOfCart, customer1);
