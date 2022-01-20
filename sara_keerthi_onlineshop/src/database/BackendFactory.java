@@ -2,6 +2,8 @@ package database;
 
 import models.User;
 
+import java.sql.SQLException;
+
 /**
  * Backend Factory Class which defines all Factory Methods.
  */
@@ -24,7 +26,7 @@ public abstract class BackendFactory {
      * Call any of these Methods instead of directly calling new <Class>(...)
      */
 
-    public abstract User createUser(int IDuser, String userName, String password, String firstName, String lastName, String address, String email);
+    public abstract User createUser(String vorname, String nachname, String adresse, String email, String username, String passwort) throws SQLException;
 
     //ex from tourenplaner
     /*public abstract Fahrt createFahrt(Fahrzeug fahrzeug, Disponent disponent) throws SQLException;

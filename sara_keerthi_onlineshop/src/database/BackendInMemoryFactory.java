@@ -3,6 +3,8 @@ package database;
 import models.User;
 import models.User_InMemoryImpl;
 
+import java.sql.SQLException;
+
 /**
  * Singeton Class for InMemory Factory
  * Returns objects of the Classes ....InMemory_Impl
@@ -13,8 +15,8 @@ public class BackendInMemoryFactory extends BackendFactory {
         return factory;
     }
 
-    public User createUser(int IDuser, String userName, String password, String firstName, String lastName, String address, String email){
-        return new User_InMemoryImpl(IDuser, userName, password, firstName, lastName, address, email);
+    public User createUser(String vorname, String nachname, String adresse, String email, String username, String passwort) throws SQLException {
+        return new User_InMemoryImpl(vorname, nachname, adresse, email, username, passwort);
     }
 
     //ex from tourenplaner
