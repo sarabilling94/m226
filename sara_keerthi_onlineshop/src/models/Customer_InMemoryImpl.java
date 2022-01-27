@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Customer_InMemoryImpl extends Customer {
     private static final ArrayList<Customer> customers  = new ArrayList<>();
-    private User user;
+    private final User user;
     private Date birthday;
     private String phone;
     private String gender;
