@@ -10,11 +10,6 @@ abstract public class User {
     private String address;
     private String email;
 
-
-    //public abstract void setIDuser(int id);
-
-    //public abstract int getIDuser();
-
     public abstract void setuserName(String username);
 
     public abstract String getuserName();
