@@ -4,36 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /** needed for checkout */
-public class Order {
-    private ArrayList<CartDetails> arrayOfDetails;
-    private Customer customer;
-    private Date date = java.util.Calendar.getInstance().getTime();
-
-    public Order(ArrayList<CartDetails> arrayOfDetails, Customer customer){
-        this.arrayOfDetails = arrayOfDetails;
-        this.customer = customer;
-    }
+public abstract class Order {
 
     /** generates a bill with the articles and the total price*/
-    public String generateBill(){
-        int total = arrayOfDetails.stream().mapToInt(details -> (int) (details.getArticle().getPrice() * details.getAmount())).sum();
-        String bill = "";
-        for(int i = 0; i < arrayOfDetails.size(); i++){
-            bill = bill + "models.Article: " + arrayOfDetails.get(i).getArticle().getArticleName() + " | Amount: " + arrayOfDetails.get(i).getAmount() +"\n";
-        }
-         bill  += "Total: " + total + " $";
-    return bill;
-    }
+    public abstract String generateBill();
 
-    public ArrayList<CartDetails> getArrayOfDetails() {
-        return arrayOfDetails;
-    }
+    public abstract ArrayList<CartDetails> getArrayOfDetails();
 
-    public Customer getCustomer() {
-        return customer;
-    }
+    public abstract Customer getCustomer();
 
-    public Date getDate() {
-        return date;
-    }
+    public abstract Date getDate();
 }

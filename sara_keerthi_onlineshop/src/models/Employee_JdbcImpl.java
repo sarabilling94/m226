@@ -19,6 +19,7 @@ public class Employee_JdbcImpl extends Employee{
         PreparedStatement employee_stmt = conn.prepareStatement("insert into tbl_mitarbeiter (FS_person,geburtstag,geschlecht,telefon,admin) values(?,?,?,?,?)");
         employee_stmt.setInt(1, IDuser);
         employee_stmt.setDate(2, Date.valueOf(geburtstag));
+        employee_stmt.setString(3, geschlecht);
         employee_stmt.setString(4, telefon);
         employee_stmt.setBoolean(5, admin);
         employee_stmt.executeUpdate();
