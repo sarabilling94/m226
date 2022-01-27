@@ -1,12 +1,13 @@
 package database;
 
-import models.User;
-import models.User_InMemoryImpl;
+import models.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
- * Singeton Class for InMemory Factory
+ * Singelton Class for InMemory Factory
  * Returns objects of the Classes ....InMemory_Impl
  */
 public class BackendInMemoryFactory extends BackendFactory {
@@ -19,48 +20,19 @@ public class BackendInMemoryFactory extends BackendFactory {
         return new User_InMemoryImpl(vorname, nachname, adresse, email, username, passwort);
     }
 
-    //ex from tourenplaner
-    /*
-    public Station createStation(Timestamp ankunftszeit, Timestamp abfahrtszeit, Ort ort, Fahrer fahrer, int haltnummer, Fahrt fahrt) {
-        return new StationInMemory_impl(ankunftszeit, abfahrtszeit, ort, fahrer, haltnummer, fahrt);
+    public Article createArticle(String bezeichnung, int IDarticle, float preis, String farbe, String kategorie, String geschlecht, int aufLager) throws SQLException {
+        return new Article(bezeichnung, IDarticle, preis, farbe, kategorie, geschlecht, aufLager);
     }
 
-    public Person createPerson(String vorname, String nachname, String telefonnummer) {
-        return new PersonInMemory_Impl(vorname, nachname, telefonnummer);
+    public Order createOrder(ArrayList<CartDetails> arrayOfDetails, Customer kunde) throws SQLException {
+        return new Order(arrayOfDetails, kunde);
     }
 
-    public Ort createOrt(String plz, String ortsbezeichnung) throws SQLException {
-        return new OrtInMemory_Impl(plz, ortsbezeichnung);
+    public CartDetails createCartDetails(Article artikel, int anzahl) throws SQLException {
+        return new CartDetails(artikel, anzahl);
     }
 
-    public Mitarbeiter createMitarbeiter(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum) {
-        return new MitarbeiterInMemory_Impl(vorname, nachname, telefonnummer, anstellungsdatum);
+    public CartDetails createCartDetails(Article artikel, int anzahl) throws SQLException {
+        return new CartDetails(artikel, anzahl);
     }
-
-    public Kunde createKunde(String vorname, String nachname, String telefonnummer) {
-        return new KundeInMemory_Impl(vorname, nachname, telefonnummer);
-    }
-
-
-    public Fahrzeug createFahrzeug(String kennzeichen, int sitzplaetze) {
-        return new FahrzeugInMemory_Impl(kennzeichen, sitzplaetze);
-
-    }
-
-    public Disponent createDisponent(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum, int region_id) {
-        return new DisponentInMemory_Impl(vorname, nachname, telefonnummer, anstellungsdatum, region_id);
-    }
-
-    public Fahrer createFahrer(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum) {
-        return new FahrerInMemory_Impl(vorname, nachname, telefonnummer, anstellungsdatum);
-    }
-
-    public Fahrt createFahrt(Fahrzeug fahrzeug, Disponent disponent)  {
-        return new FahrtInMemory_Impl(fahrzeug, disponent);
-    }
-
-    public ArrayList<? extends Fahrt> getFahrten()  {
-        return FahrtInMemory_Impl.getFahrten();
-    }
-     */
 }

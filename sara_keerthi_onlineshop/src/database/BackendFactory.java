@@ -1,8 +1,11 @@
 package database;
 
-import models.User;
+import models.*;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Backend Factory Class which defines all Factory Methods.
@@ -21,23 +24,12 @@ public abstract class BackendFactory {
         throw new RuntimeException(Configuration.hibernation + " not implemented yet");
     }
 
-    /*
-     * Definition of Factory Methods to create and get Objects of the specific <Class>.
-     * Call any of these Methods instead of directly calling new <Class>(...)
-     */
-
     public abstract User createUser(String vorname, String nachname, String adresse, String email, String username, String passwort) throws SQLException;
+    public abstract Article createArticle(String bezeichnung, int IDarticle, float preis, String farbe, String kategorie, String geschlecht, int aufLager)  throws SQLException;
+    public abstract Order createOrder(Customer kunde, Date bestelldatum, ArrayList<CartDetails> arrayOfDetails) throws SQLException;
+    public abstract CartDetails createCartDetails(Article artikel, int anzahl) throws SQLException;
+    public abstract Customer createCustomer(User person, Date geburtstag, String telefon, String geschlecht) throws SQLException;
+    public abstract Employee createEmployee(User person, LocalDate birthday, String phone, String gender, boolean admin) throws SQLException;
 
-    //ex from tourenplaner
-    /*public abstract Fahrt createFahrt(Fahrzeug fahrzeug, Disponent disponent) throws SQLException;
-    public abstract Disponent createDisponent(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum, int region_id) throws SQLException ;
-    public abstract Fahrer createFahrer(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum) throws SQLException ;
-    public abstract Fahrzeug createFahrzeug(String kennzeichen, int sitzplaetze) throws SQLException ;
-    public abstract Kunde createKunde(String vorname, String nachname, String telefonnummer) throws SQLException ;
-    public abstract Mitarbeiter createMitarbeiter(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum) throws SQLException ;
-    public abstract Ort createOrt(String plz, String ortsbezeichnung) throws  SQLException ;
-    public abstract Person createPerson(String vorname, String nachname, String telefonnummer);
-    public abstract Station createStation(Timestamp ankunftszeit, Timestamp abfahrtszeit, Ort ort, Fahrer fahrer, int haltnummer, Fahrt fahrt) throws SQLException;
-    public abstract ArrayList<? extends Fahrt> getFahrten() throws SQLException ;
-     */
+    //function for getting foreignkeys?
 }
