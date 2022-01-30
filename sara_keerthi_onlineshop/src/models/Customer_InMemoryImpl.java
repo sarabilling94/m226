@@ -23,4 +23,9 @@ public class Customer_InMemoryImpl extends Customer {
 
     @Override
     public void delete(){ customers.remove(this);}
+
+    @Override
+    public int getIDcustomer() {
+        return 0;
+    }
 }
