@@ -1,6 +1,10 @@
 package models;
 
+import java.util.ArrayList;
+
 public class User_InMemoryImpl extends User {
+    private int IDuser;
+    private static final ArrayList<User> users  = new ArrayList<>();
     private String userName;
     private String password;
     private String firstName;
@@ -8,13 +12,24 @@ public class User_InMemoryImpl extends User {
     private String address;
     private String email;
 
-    public User_InMemoryImpl(String vorname, String nachname, String adresse, String email, String username, String passwort){
+    public User_InMemoryImpl(int IDuser, String vorname, String nachname, String adresse, String email, String username, String passwort){
+        this.IDuser = IDuser;
         this.userName = username;
         this.password = passwort;
         this.firstName = vorname;
         this.lastName = nachname;
         this.address = adresse;
         this.email = email;
+
+        users.add(this);
+    }
+
+    public void setIDuser(int id){
+        this.IDuser = id;
+    }
+
+    public int getIDuser(){
+        return this.IDuser;
     }
 
     public void setuserName(String username){ this.userName = username; }
@@ -73,6 +88,6 @@ public class User_InMemoryImpl extends User {
 
     @Override
     public void delete() {
-        throw new RuntimeException("Not implemented yet");
+        users.remove(this);
     }
 }
