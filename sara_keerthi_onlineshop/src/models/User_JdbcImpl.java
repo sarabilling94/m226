@@ -26,7 +26,7 @@ public class User_JdbcImpl extends User {
         IDuser = User_res.getInt("ID_person");
     }
 
-    private User_JdbcImpl(int IDuser) {
+    public User_JdbcImpl(int IDuser) {
         this.IDuser = IDuser;
     }
 
