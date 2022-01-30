@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Article_InMemoryImpl extends Article {
     private String articleName;
+    private static final ArrayList<Article> articles  = new ArrayList<>();
     private int IDarticle;
     private float price;
     private String color;
@@ -12,15 +13,19 @@ public class Article_InMemoryImpl extends Article {
     private String gender;
     private int inStock;
 
+
+    /** constructor */
     public Article_InMemoryImpl(String articleName, int IDarticle, float price, String color, String category, String gender, int inStock){
-            this.articleName = articleName;
-            this.IDarticle = IDarticle;
-            this.price = price;
-            this.color = color;
-            this.category = category;
-            this.gender = gender;
-            this.inStock = inStock;
-        }
+        this.articleName = articleName;
+        this.IDarticle = IDarticle;
+        this.price = price;
+        this.color = color;
+        this.category = category;
+        this.gender = gender;
+        this.inStock = inStock;
+
+        articles.add(this);
+    }
 
     public void setArticleName(String name){
         this.articleName = name;
@@ -89,8 +94,5 @@ public class Article_InMemoryImpl extends Article {
         return this.inStock;
     }
 
-
-
-    @Override
-    public void delete(){ customers.remove(this);}
+    public void delete(){ articles.remove(this);}
 }

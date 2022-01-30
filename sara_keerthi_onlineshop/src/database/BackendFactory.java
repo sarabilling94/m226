@@ -26,10 +26,10 @@ public abstract class BackendFactory {
 
     public abstract User createUser(String vorname, String nachname, String adresse, String email, String username, String passwort) throws SQLException;
     public abstract Article createArticle(String bezeichnung, int IDarticle, float preis, String farbe, String kategorie, String geschlecht, int aufLager)  throws SQLException;
-    public abstract Order createOrder(Customer kunde, Date bestelldatum, ArrayList<CartDetails> arrayOfDetails) throws SQLException;
+    public abstract Order createOrder(ArrayList<CartDetails> arrayOfDetails, Customer kunde) throws SQLException;
     public abstract CartDetails createCartDetails(Article artikel, int anzahl) throws SQLException;
-    public abstract Customer createCustomer(User person, Date geburtstag, String telefon, String geschlecht) throws SQLException;
-    public abstract Employee createEmployee(User person, LocalDate birthday, String phone, String gender, boolean admin) throws SQLException;
+    public abstract Customer createCustomer(String vorname, String nachname, String adresse, String email, String username, String passwort) throws SQLException;
+    public abstract Employee createEmployee(String vorname, String nachname, String adresse, String email, String username, String passwort, LocalDate birthday, String phone, String gender, boolean admin) throws SQLException;
 
     //function for getting foreignkeys?
 }

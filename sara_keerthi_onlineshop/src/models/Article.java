@@ -1,6 +1,6 @@
 package models;
 
-public class Article {
+public abstract class Article {
     private String articleName;
     private int IDarticle;
     private float price;
@@ -9,83 +9,41 @@ public class Article {
     private String gender;
     private int inStock;
 
+    public abstract void setArticleName(String name);
 
-    /** constructor */
-    public Article(String articleName, int IDarticle, float price, String color, String category, String gender, int inStock){
-        this.articleName = articleName;
-        this.IDarticle = IDarticle;
-        this.price = price;
-        this.color = color;
-        this.category = category;
-        this.gender = gender;
-        this.inStock = inStock;
-    }
-
-    public void setArticleName(String name){
-        this.articleName = name;
-    }
-
-    public String getArticleName(){
-        return this.articleName;
-    }
+    public abstract String getArticleName();
 
 
-    public void setIDarticle(int id){
-        this.IDarticle = id;
-    }
+    public abstract void setIDarticle(int id);
 
-    public int getIDarticle(){
-        return this.IDarticle;
-    }
+    public abstract int getIDarticle();
 
 
-    public  void setPrice(float price){
-        this.price = price;
-    }
+    public abstract void setPrice(float price);
 
-    public float getPrice(){
-        return this.price;
-    }
+    public abstract float getPrice();
 
 
-    public void setcolor(String color){
-        this.color = color;
-    }
+    public abstract void setcolor(String color);
 
-    public String getcolor(){
-        return this.color;
-    }
+    public abstract String getcolor();
 
 
-    public void setcategory(String category){
-        this.category = category;
-    }
+    public abstract void setcategory(String category);
 
-    public String getcategory(){
-        return this.category;
-    }
+    public abstract String getcategory();
 
 
-    public void setgender(String gender){
-        this.gender = gender;
-    }
+    public abstract void setgender(String gender);
 
-    public String getgender(){
-        return this.gender;
-    }
+    public abstract String getgender();
 
 
     /** sets how many of this article are in stock. can't be negative */
-    public void setinStock(int amount){
-        if(amount < 0){
-            System.out.println("Amount can't be negative.");
-            return;
-        }
-            this.inStock = amount;
-    }
+    public abstract void setinStock(int amount);
 
-    public int getinStock(){
-        return this.inStock;
-    }
+    public abstract int getinStock();
+
+    public abstract void delete();
 
 }

@@ -9,8 +9,8 @@ public class Order_InMemoryImpl extends Order{
     private Customer customer;
     private Date date = java.util.Calendar.getInstance().getTime();
 
-    public Order_InMemoryImpl(String vorname, String nachname, String adresse, String email, String username, String passwort, Date birthday, String phone, String gender, ArrayList<CartDetails> arrayOfDetails){
-        customer = new Customer_InMemoryImpl(vorname, nachname, adresse, email, username, passwort, birthday, phone, gender);
+    public Order_InMemoryImpl(ArrayList<CartDetails> arrayOfDetails, Customer customer){
+        this.customer = customer;
         this.arrayOfDetails = arrayOfDetails;
 
         orders.add(this);

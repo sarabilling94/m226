@@ -22,7 +22,7 @@ public class Cart {
 
     /** creates a new order based on the articles in the cart. */
     public Order createOrder(){
-        Order order = new Order(this.arrayOfCartDetails, this.customer);
+        Order order = new Order_InMemoryImpl(this.arrayOfCartDetails, this.customer);
         return order;
     }
 
