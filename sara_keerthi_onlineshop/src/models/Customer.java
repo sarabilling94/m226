@@ -6,4 +6,5 @@ import java.sql.SQLException;
 public abstract class Customer{
     private int IDcustomer;
     public abstract void delete() throws SQLException;
+    public abstract int getIDcustomer();
 }

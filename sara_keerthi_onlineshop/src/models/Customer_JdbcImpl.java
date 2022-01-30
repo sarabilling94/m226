@@ -36,4 +36,8 @@ public class Customer_JdbcImpl extends Customer {
         conn.commit();
         conn.setAutoCommit(true);
     }
+
+    public int getIDcustomer(){
+        return IDuser;
+    }
 }

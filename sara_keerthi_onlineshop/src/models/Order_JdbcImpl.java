@@ -13,10 +13,10 @@ public class Order_JdbcImpl {
     private int IDorder;
     private Date date = java.util.Calendar.getInstance().getTime();
 
-    public Order_JdbcImpl(User user) throws SQLException {
+    public Order_JdbcImpl(Customer customer) throws SQLException {
         Connection conn = JdbcDb.getConnection();
         PreparedStatement order_stmt = conn.prepareStatement("insert into tbl_bestellung (FS_kunde, bestelldatum) values (?,?)");
-        order_stmt.setInt(1, ((User_JdbcImpl) user).getIDuser());
+        order_stmt.setInt(1, ((Customer_JdbcImpl) customer).getIDcustomer());
         order_stmt.setDate(2, (java.sql.Date) date);
         order_stmt.executeUpdate();
         ResultSet order_res = order_stmt.getGeneratedKeys();
@@ -46,5 +46,15 @@ public class Order_JdbcImpl {
         ResultSet res = order_stmt.getResultSet();
         res.next();
         return new User_JdbcImpl(res.getInt("FS_kunde"));
+    }
+
+    public Order_JdbcImpl getOrderByIDuser(int IDuser) throws SQLException {
+        Connection conn = JdbcDb.getConnection();
+        PreparedStatement order_stmt = conn.prepareStatement("select ID_bestellung from tbl_bestellung where FS_kunde=?");
+        order_stmt.setInt(1, IDuser);
+        order_stmt.execute();
+        ResultSet res = order_stmt.getResultSet();
+        res.next();
+        return new Order_JdbcImpl(res.getInt(1));
     }
 }
