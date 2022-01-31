@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 /**
- * Singeton Class for Jdbc Factory
+ * Singleton Class for Jdbc Factory
  * Returns objects of the Classes ....Jdbc_Impl
  */
 public class BackendJdbcFactory extends BackendFactory {

@@ -61,5 +61,14 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="mockito.junit.jupiter" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/sara_keerthi_onlineshop/lib/mariadb-java-client-2.7.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

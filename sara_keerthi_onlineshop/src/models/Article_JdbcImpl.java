@@ -13,12 +13,12 @@ public class Article_JdbcImpl extends Article {
     public Article_JdbcImpl(String articleName, String gender, String category, float price, String color, int inStock) throws SQLException {
         Connection conn = JdbcDb.getConnection();
         PreparedStatement Article_stmt = conn.prepareStatement("insert into tbl_artikel (bezeichnung, geschlecht, kategorie, preis, color, inStock) values (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
-        Article_stmt.setString(2, articleName);
-        Article_stmt.setString(3, gender);
-        Article_stmt.setString(4, category);
-        Article_stmt.setFloat(5, price);
-        Article_stmt.setString(6, color);
-        Article_stmt.setInt(7, inStock);
+        Article_stmt.setString(1, articleName);
+        Article_stmt.setString(2, gender);
+        Article_stmt.setString(3, category);
+        Article_stmt.setFloat(4, price);
+        Article_stmt.setString(5, color);
+        Article_stmt.setInt(6, inStock);
         Article_stmt.executeUpdate();
         ResultSet Article_res = Article_stmt.getGeneratedKeys();
         Article_res.next();
