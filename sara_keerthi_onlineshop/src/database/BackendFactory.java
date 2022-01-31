@@ -25,11 +25,9 @@ public abstract class BackendFactory {
     }
 
     public abstract User createUser(String vorname, String nachname, String adresse, String email, String username, String passwort) throws SQLException;
-    public abstract Article createArticle(String bezeichnung, int IDarticle, float preis, String farbe, String kategorie, String geschlecht, int aufLager)  throws SQLException;
-    public abstract Order createOrder(ArrayList<CartDetails> arrayOfDetails, Customer kunde) throws SQLException;
-    public abstract CartDetails createCartDetails(Article artikel, int anzahl) throws SQLException;
-    public abstract Customer createCustomer(String vorname, String nachname, String adresse, String email, String username, String passwort) throws SQLException;
-    public abstract Employee createEmployee(String vorname, String nachname, String adresse, String email, String username, String passwort, LocalDate birthday, String phone, String gender, boolean admin) throws SQLException;
+    public abstract Article createArticle(String articleName, String gender, String category, float price, String color, int inStock)  throws SQLException;
+    public abstract CheckoutController createOrder(Cart cart) throws SQLException;
+    public abstract Customer createCustomer(String vorname, String nachname, String adresse, String email, String username, Date birthday, String phone, String gender, String passwort) throws SQLException;
+    public abstract Employee createEmployee(String vorname, String nachname, String adresse, String email, String username, String passwort, Date geburtstag, String geschlecht, String telefon, boolean admin) throws SQLException;
 
-    //function for getting foreignkeys?
 }
