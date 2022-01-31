@@ -1,10 +1,9 @@
 package database;
 
-import models.User;
-import models.User_InMemoryImpl;
-import models.User_JdbcImpl;
+import models.*;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  * Singeton Class for Jdbc Factory
@@ -20,50 +19,19 @@ public class BackendJdbcFactory extends BackendFactory {
         return new User_JdbcImpl(vorname, nachname, adresse, email, username, passwort);
     }
 
-    //ex from tourenplaner
-    /*
-    public Station createStation(Timestamp ankunftszeit, Timestamp abfahrtszeit, Ort ort, Fahrer fahrer, int haltnummer, Fahrt fahrt) throws SQLException {
-        return new StationJdbc_impl(ankunftszeit, abfahrtszeit, ort, fahrer, haltnummer, fahrt);
+    public Customer createCustomer(String vorname, String nachname, String adresse, String email, String username, Date birthday, String phone, String gender, String passwort) throws SQLException{
+        return new Customer_JdbcImpl(vorname, nachname, adresse, email, username, birthday, phone, gender, passwort);
     }
 
-    public Person createPerson(String vorname, String nachname, String telefonnummer) {
-        throw new RuntimeException(Configuration.hibernation + " not implemented yet");
+    public Employee createEmployee(String vorname, String nachname, String adresse, String email, String username, String passwort, Date geburtstag, String geschlecht, String telefon, boolean admin) throws SQLException{
+        return new Employee_JdbcImpl(vorname, nachname, adresse, email, username, passwort, geburtstag, geschlecht, telefon, admin);
     }
 
-    public Ort createOrt(String plz, String ortsbezeichnung) throws SQLException {
-        return new OrtJdbc_Impl(plz, ortsbezeichnung);
+    public Article createArticle(String articleName, String gender, String category, float price, String color, int inStock) throws SQLException {
+        return new Article_JdbcImpl(articleName, gender, category, price, color, inStock);
     }
 
-    public Mitarbeiter createMitarbeiter(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum) throws SQLException {
-        return new MitarbeiterJdbc_Impl(vorname, nachname, telefonnummer, anstellungsdatum);
+    public CheckoutController createOrder(Cart cart) throws SQLException {
+        return new CheckoutController_JdbcImpl(cart);
     }
-
-    public Kunde createKunde(String vorname, String nachname, String telefonnummer) throws SQLException {
-        return new KundeJdbc_Impl(vorname, nachname, telefonnummer);
-    }
-
-
-    public Fahrzeug createFahrzeug(String kennzeichen, int sitzplaetze) throws SQLException {
-        return new FahrzeugJdbc_Impl(kennzeichen, sitzplaetze);
-
-    }
-
-    public Disponent createDisponent(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum, int region_id) throws SQLException {
-        return new DisponentJdbc_Impl(vorname, nachname, telefonnummer, anstellungsdatum, region_id);
-    }
-
-    public Fahrer createFahrer(String vorname, String nachname, String telefonnummer, Timestamp anstellungsdatum) throws SQLException {
-        return new FahrerJdbc_Impl(vorname, nachname, telefonnummer, anstellungsdatum);
-    }
-
-    public Fahrt createFahrt(Fahrzeug fahrzeug, Disponent disponent) throws SQLException {
-        return new FahrtJdbc_Impl(fahrzeug, disponent);
-    }
-
-    public ArrayList<? extends Fahrt> getFahrten() throws SQLException {
-        return FahrtJdbc_Impl.getFahrten();
-    }
-     */
-
-
 }

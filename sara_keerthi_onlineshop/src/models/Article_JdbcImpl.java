@@ -17,8 +17,8 @@ public class Article_JdbcImpl extends Article {
         Article_stmt.setString(3, gender);
         Article_stmt.setString(4, category);
         Article_stmt.setFloat(5, price);
-        Article_stmt.setString(6, gender);
-        Article_stmt.setBoolean(7, true);
+        Article_stmt.setString(6, color);
+        Article_stmt.setInt(7, inStock);
         Article_stmt.executeUpdate();
         ResultSet Article_res = Article_stmt.getGeneratedKeys();
         Article_res.next();
