@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Random;
 
 /**
- * Singelton Class for InMemory Factory
+ * Singleton Class for InMemory Factory
  * Returns objects of the Classes ....InMemory_Impl
  */
 public class BackendInMemoryFactory extends BackendFactory {

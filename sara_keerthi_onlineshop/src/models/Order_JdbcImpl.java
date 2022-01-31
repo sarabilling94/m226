@@ -21,7 +21,7 @@ public class Order_JdbcImpl {
         order_stmt.executeUpdate();
         ResultSet order_res = order_stmt.getGeneratedKeys();
         order_res.next();
-        IDorder = order_res.getInt(1);
+        IDorder = order_res.getInt("ID_bestellung");
         conn.commit();
         conn.setAutoCommit(true);
     }
@@ -41,7 +41,7 @@ public class Order_JdbcImpl {
     public User getCustomer() throws SQLException {
         Connection conn = JdbcDb.getConnection();
         PreparedStatement order_stmt = conn.prepareStatement("select FS_kunde from tbl_bestellung where ID_bestellung=?");
-        order_stmt.setInt(1, IDorder);
+        order_stmt.setInt(0, IDorder);
         order_stmt.execute();
         ResultSet res = order_stmt.getResultSet();
         res.next();
@@ -55,6 +55,6 @@ public class Order_JdbcImpl {
         order_stmt.execute();
         ResultSet res = order_stmt.getResultSet();
         res.next();
-        return new Order_JdbcImpl(res.getInt(1));
+        return new Order_JdbcImpl(res.getInt("ID_bestellung"));
     }
 }
