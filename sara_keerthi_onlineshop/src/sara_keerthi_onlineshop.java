@@ -22,8 +22,11 @@ public class sara_keerthi_onlineshop {
         // backend.createArticle("testarticle", "f", "hose", (float)12.5, "red", 5);
 
         Date date = new SimpleDateFormat("dd/MM/yyyy").parse("31/01/2022");
-        backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232",
-                "f", "2asdad");
+        // backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232",
+        //        "f", "2asdad");
+
+        // backend.createEmployee("testemploydee", "test", "test", "test",
+        //        "test", "sdfsdfs", date, "f", "234234234", true);
 
     }
 }
