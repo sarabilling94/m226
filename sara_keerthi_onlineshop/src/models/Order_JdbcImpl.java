@@ -4,17 +4,18 @@ import database.JdbcDb;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Order_JdbcImpl {
     private int IDorder;
-    private Date date = java.util.Calendar.getInstance().getTime();
+    private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 
     public Order_JdbcImpl(Customer customer) throws SQLException {
         Connection conn = JdbcDb.getConnection();
         PreparedStatement order_stmt = conn.prepareStatement("insert into tbl_bestellung (FS_kunde, bestelldatum) values (?,?), , Statement.RETURN_GENERATED_KEYS");
         order_stmt.setInt(1, ((Customer_JdbcImpl) customer).getIDcustomer());
-        order_stmt.setDate(2, new java.sql.Date(date.getDate()));
+        order_stmt.setDate(2, date);
         order_stmt.executeUpdate();
         ResultSet order_res = order_stmt.getGeneratedKeys();
         order_res.next();
@@ -27,7 +28,7 @@ public class Order_JdbcImpl {
         Connection conn = JdbcDb.getConnection();
         PreparedStatement order_stmt = conn.prepareStatement("insert into tbl_bestellung (FS_kunde, bestelldatum) values (?,?)", Statement.RETURN_GENERATED_KEYS);
         order_stmt.setInt(1, IDcustomer);
-        order_stmt.setDate(2, new java.sql.Date(date.getDate()));
+        order_stmt.setDate(2, date);
         order_stmt.executeUpdate();
         ResultSet order_res = order_stmt.getGeneratedKeys();
         order_res.next();
