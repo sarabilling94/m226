@@ -18,7 +18,7 @@ public class Customer_JdbcImpl extends Customer {
         PreparedStatement customer_stmt = conn.prepareStatement("insert into tbl_kunde (FS_person, geschlecht, geburtsdatum, telefon) values(?,?,?,?)");
         customer_stmt.setInt(1, IDuser);
         customer_stmt.setString(2, gender);
-        customer_stmt.setDate(3, new java.sql.Date(birthday.getDate()));
+        customer_stmt.setDate(3, new java.sql.Date(birthday.getTime()));
         customer_stmt.setString(4, phone);
         customer_stmt.executeUpdate();
         conn.commit();

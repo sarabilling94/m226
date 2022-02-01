@@ -14,18 +14,18 @@ public class sara_keerthi_onlineshop {
 
         BackendFactory backend = new BackendJdbcFactory();
 
-        // create user
+        // // create user
         // backend.createUser("testuser", "test", "test", "test", "test", "test");
 
-        // create article
+        // // create article
         // backend.createArticle("testarticle2", "f", "hose", (float)12.5, "red", 5);
 
-        //create customer
-        Date date = new SimpleDateFormat("dd/MM/yyyy").parse("31/01/2022");
+        // // create customer
+        // Date date = new SimpleDateFormat("dd/MM/yyyy").parse("31/01/2022");
         // backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232",
         //        "f", "2asdad");
-
-        //create employee
+//
+        // //create employee
         // backend.createEmployee("testemploydee", "test", "test", "test",
         //        "test", "sdfsdfs", date, "f", "234234234", true);
 
@@ -45,7 +45,7 @@ public class sara_keerthi_onlineshop {
 
         cart.getArrayOfCartDetails().forEach(cartDetails ->
                 System.out.println("article: " + cartDetails.getArticle().getIDarticle()
-                + "amount: " + cartDetails.getAmount())
+                        + "amount: " + cartDetails.getAmount())
         );
 
         backend.createOrder(cart);
