@@ -3,11 +3,14 @@ package unittesting;
 import models.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import utils.OutOfStockException;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -70,7 +73,7 @@ class CartTest {
 
     // Hier fängt dann testing an für Methode addItems()
     @org.junit.jupiter.api.Test
-    void addItemsTest() {
+    void addItemsTest() throws OutOfStockException {
 
         when(article1.getinStock()).thenReturn(10);
         when(article2.getinStock()).thenReturn(10);
@@ -85,9 +88,12 @@ class CartTest {
         assertEquals(10, article1.getinStock());
         assertEquals(10, article2.getinStock());
 
-        assertEquals("Not enough in stock. There are only 10 left.", cart.addItems(article3, 15));
         assertEquals("Articles added.", cart.addItems(article1, 5));
         assertEquals("Articles added.", cart.addItems(article2, 10));
+
+        Exception exception = assertThrows(OutOfStockException.class, () -> cart.addItems(article3, 15));
+        assertEquals("Article is out of stock!", exception.getMessage());
+
     }
 
 }

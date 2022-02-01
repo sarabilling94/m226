@@ -1,6 +1,7 @@
 import database.BackendFactory;
 import database.BackendJdbcFactory;
 import models.*;
+import utils.OutOfStockException;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -10,7 +11,7 @@ import java.util.Date;
 
 public class sara_keerthi_onlineshop {
 
-    public static void main(String[] args) throws SQLException, ParseException {
+    public static void main(String[] args) throws SQLException, ParseException, OutOfStockException {
 
         BackendFactory backend = new BackendJdbcFactory();
 
