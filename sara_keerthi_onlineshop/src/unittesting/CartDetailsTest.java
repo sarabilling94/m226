@@ -1,6 +1,7 @@
 package unittesting;
 
 import models.Article;
+import models.Article_InMemoryImpl;
 import models.CartDetails;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CartDetailsTest {
 
     @Mock
-    Article article;
+    Article_InMemoryImpl article;
 
     int amount = 3;
     CartDetails details;

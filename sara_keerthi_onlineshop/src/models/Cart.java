@@ -1,5 +1,7 @@
 package models;
 
+import utils.OutOfStockException;
+
 import java.util.ArrayList;
 
 /** the customers cart that contains the chosen articles */
@@ -28,7 +30,7 @@ public class Cart {
 
     /** adds a certain amount of an article to a cart.
     returns a string to confirm whether article has been added or not. */
-    public String addItems(Article_InMemoryImpl article, int amount){
+    public String addItems(Article_InMemoryImpl article, int amount) throws OutOfStockException {
         int newInStock = article.getinStock() - amount;
         if(newInStock >= 0){
             arrayOfCartDetails.add(new CartDetails(article, amount));
@@ -36,7 +38,7 @@ public class Cart {
             return "Articles added.";
         }
         else{
-            return "Not enough in stock. There are only " + article.getinStock() + " left.";
+            throw new OutOfStockException("Article is out of stock!");
         }
     }
 }
