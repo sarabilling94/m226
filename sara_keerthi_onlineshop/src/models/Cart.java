@@ -28,7 +28,7 @@ public class Cart {
 
     /** adds a certain amount of an article to a cart.
     returns a string to confirm whether article has been added or not. */
-    public String addItems(Article article, int amount){
+    public String addItems(Article_InMemoryImpl article, int amount){
         int newInStock = article.getinStock() - amount;
         if(newInStock >= 0){
             arrayOfCartDetails.add(new CartDetails(article, amount));

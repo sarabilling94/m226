@@ -2,10 +2,7 @@ package models;
 
 import database.JdbcDb;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,9 +12,9 @@ public class Order_JdbcImpl {
 
     public Order_JdbcImpl(Customer customer) throws SQLException {
         Connection conn = JdbcDb.getConnection();
-        PreparedStatement order_stmt = conn.prepareStatement("insert into tbl_bestellung (FS_kunde, bestelldatum) values (?,?)");
+        PreparedStatement order_stmt = conn.prepareStatement("insert into tbl_bestellung (FS_kunde, bestelldatum) values (?,?), , Statement.RETURN_GENERATED_KEYS");
         order_stmt.setInt(1, ((Customer_JdbcImpl) customer).getIDcustomer());
-        order_stmt.setDate(2, (java.sql.Date) date);
+        order_stmt.setDate(2, new java.sql.Date(date.getDate()));
         order_stmt.executeUpdate();
         ResultSet order_res = order_stmt.getGeneratedKeys();
         order_res.next();
@@ -26,13 +23,26 @@ public class Order_JdbcImpl {
         conn.setAutoCommit(true);
     }
 
-    public Order_JdbcImpl(int IDorder){
-        this.IDorder = IDorder;
+    public Order_JdbcImpl(int IDcustomer) throws SQLException {
+        Connection conn = JdbcDb.getConnection();
+        PreparedStatement order_stmt = conn.prepareStatement("insert into tbl_bestellung (FS_kunde, bestelldatum) values (?,?)", Statement.RETURN_GENERATED_KEYS);
+        order_stmt.setInt(1, IDcustomer);
+        order_stmt.setDate(2, new java.sql.Date(date.getDate()));
+        order_stmt.executeUpdate();
+        ResultSet order_res = order_stmt.getGeneratedKeys();
+        order_res.next();
+        IDorder = order_res.getInt("ID_bestellung");
+        conn.commit();
+        conn.setAutoCommit(true);
     }
 
-    public static Order_JdbcImpl getById(int IDorder) {
-        return new Order_JdbcImpl(IDorder);
-    }
+    // public Order_JdbcImpl(int IDorder){
+    //     this.IDorder = IDorder;
+    // }
+
+    // public static Order_JdbcImpl getById(int IDorder) {
+    //    return new Order_JdbcImpl(IDorder);
+    //}
 
     int getIDorder() {
         return IDorder;
@@ -41,7 +51,7 @@ public class Order_JdbcImpl {
     public User getCustomer() throws SQLException {
         Connection conn = JdbcDb.getConnection();
         PreparedStatement order_stmt = conn.prepareStatement("select FS_kunde from tbl_bestellung where ID_bestellung=?");
-        order_stmt.setInt(0, IDorder);
+        order_stmt.setInt(1, IDorder);
         order_stmt.execute();
         ResultSet res = order_stmt.getResultSet();
         res.next();

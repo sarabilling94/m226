@@ -1,9 +1,6 @@
 import database.BackendFactory;
 import database.BackendJdbcFactory;
-import models.Article;
-import models.Cart;
-import models.CheckoutController;
-import models.Customer;
+import models.*;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -17,13 +14,40 @@ public class sara_keerthi_onlineshop {
 
         BackendFactory backend = new BackendJdbcFactory();
 
-        backend.createUser("testuser", "test", "test", "test", "test", "test");
+        // create user
+        // backend.createUser("testuser", "test", "test", "test", "test", "test");
 
-        // backend.createArticle("testarticle", "f", "hose", (float)12.5, "red", 5);
+        // create article
+        // backend.createArticle("testarticle2", "f", "hose", (float)12.5, "red", 5);
 
+        //create customer
         Date date = new SimpleDateFormat("dd/MM/yyyy").parse("31/01/2022");
-        backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232",
-                "f", "2asdad");
+        // backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232",
+        //        "f", "2asdad");
 
+        //create employee
+        // backend.createEmployee("testemploydee", "test", "test", "test",
+        //        "test", "sdfsdfs", date, "f", "234234234", true);
+
+
+        // get article from db
+        Article article1 = Article_JdbcImpl.getArticleById(1);
+        Article article2 = Article_JdbcImpl.getArticleById(2);
+        // set instock
+        Article_JdbcImpl.setinStock(50, article1.getIDarticle());
+        Article_JdbcImpl.setinStock(50, article2.getIDarticle());
+
+        // add articles from db to cart
+        ArrayList<CartDetails> arrayOfCartDetails = new ArrayList<>();
+        Cart_JdbcImpl cart = new Cart_JdbcImpl(arrayOfCartDetails, 1);
+        cart.addItems(1, 5);
+        cart.addItems(2, 3);
+
+        cart.getArrayOfCartDetails().forEach(cartDetails ->
+                System.out.println("article: " + cartDetails.getArticle().getIDarticle()
+                + "amount: " + cartDetails.getAmount())
+        );
+
+        backend.createOrder(cart);
     }
 }
