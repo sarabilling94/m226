@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 class CartTest {
     // Hier werden die Setups gemacht damit wir die unter Tests ausführen können
     @Mock
-    Article article1, article2, article3;
+    Article_InMemoryImpl article1, article2, article3;
     @Mock
     CartDetails cartDetails1, cartDetails2, cartDetails3;
     @Mock
@@ -49,7 +49,7 @@ class CartTest {
     @org.junit.jupiter.api.Test
     void createOrderTest() {
         //neue models.Order erstellt
-        Order one = cart.createOrder();
+        Order_InMemoryImpl one = (Order_InMemoryImpl) cart.createOrder();
 
         when(one.getArrayOfDetails().get(0).getArticle()).thenReturn(article1);
         when(one.getArrayOfDetails().get(1).getArticle()).thenReturn(article2);

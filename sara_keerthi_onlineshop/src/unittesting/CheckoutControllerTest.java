@@ -23,12 +23,12 @@ class CheckoutControllerTest {
     ArrayList<CartDetails> arrayOfCart;
 
     @BeforeEach
-    void setup(){
+    void setup() {
 
         // ArrayList erstellt, in dieser ArrayList wird dann die Artikel hinzugefügt
-//        arrayOfCart.add(cartDetails1);
-//        arrayOfCart.add(cartDetails2);
-//        arrayOfCart.add(cartDetails3);
+        // arrayOfCart.add(cartDetails1);
+        // arrayOfCart.add(cartDetails2);
+        // arrayOfCart.add(cartDetails3);
 
         //neue models.Cart erstellt. Pro models.Cart ein models.Customer
         cart = new Cart(arrayOfCart, customer1);

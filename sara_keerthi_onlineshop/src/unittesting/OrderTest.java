@@ -15,14 +15,14 @@ import static org.mockito.Mockito.when;
 class OrderTest {
     // Hier werden die Setups gemacht damit wir die unter Tests ausführen können
     @Mock
-    Article article1, article2, article3;
+    Article_InMemoryImpl article1, article2, article3;
     @Mock
     CartDetails cartDetails1, cartDetails2, cartDetails3;
     @Mock
     Customer customer1;
 
     Cart cart;
-    Order two;
+    Order_InMemoryImpl two;
     ArrayList<CartDetails> arrayOfCart;
 
     @BeforeEach
@@ -44,7 +44,7 @@ class OrderTest {
         cart = new Cart(arrayOfCart, customer1);
 
         //neuer models.Order
-        two = cart.createOrder();
+        two = (Order_InMemoryImpl)cart.createOrder();
     }
 
 
