@@ -31,7 +31,7 @@ public class BackendJdbcFactory extends BackendFactory {
         return new Article_JdbcImpl(articleName, gender, category, price, color, inStock);
     }
 
-    public CheckoutController createOrder(Cart cart) throws SQLException {
+    public CheckoutController createOrder(Cart_JdbcImpl cart) throws SQLException {
         return new CheckoutController_JdbcImpl(cart);
     }
 }

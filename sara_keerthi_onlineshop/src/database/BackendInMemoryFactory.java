@@ -46,7 +46,7 @@ public class BackendInMemoryFactory extends BackendFactory {
         return new Order_InMemoryImpl(arrayOfDetails, kunde);
     }
 
-    public CartDetails createCartDetails(Article artikel, int anzahl) throws SQLException {
+    public CartDetails createCartDetails(Article_InMemoryImpl artikel, int anzahl) throws SQLException {
         return new CartDetails(artikel, anzahl);
     }
 
@@ -55,6 +55,10 @@ public class BackendInMemoryFactory extends BackendFactory {
     }
 
     public CheckoutController createOrder(Cart cart){
+        return new CheckoutController_InMemoryImpl();
+    }
+
+    public CheckoutController createOrder(Cart_JdbcImpl cart){
         return new CheckoutController_InMemoryImpl();
     }
 }

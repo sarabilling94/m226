@@ -2,6 +2,7 @@ package models;
 
 import database.JdbcDb;
 
+import javax.swing.*;
 import java.sql.*;
 
 /**
@@ -44,6 +45,23 @@ public class Article_JdbcImpl extends Article {
             ResultSet res = Article_stmt.getResultSet();
             res.next();
             return res.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Article_InMemoryImpl getArticleById(int IDarticle){
+        try {
+            Connection conn = JdbcDb.getConnection();
+            PreparedStatement Article_stmt = conn.prepareStatement("select * from tbl_artikel where ID_artikel=?");
+            Article_stmt.setInt(1, IDarticle);
+            Article_stmt.execute();
+            ResultSet res = Article_stmt.getResultSet();
+            res.next();
+            Article_InMemoryImpl article = new Article_InMemoryImpl(res.getString("bezeichnung"), res.getInt("ID_artikel"), res.getFloat("preis"),
+                    res.getString("color"), res.getString("kategorie"), res.getString("geschlecht"), res.getInt("inStock") );
+            return article;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -105,14 +123,33 @@ public class Article_JdbcImpl extends Article {
         throw new RuntimeException("Not implemented yet");
     }
 
-    @Override
-    public int getinStock() {
-        return 0;
+    public static int getinStock(int IDarticle) {
+        try {
+            Connection conn = JdbcDb.getConnection();
+            PreparedStatement Article_stmt = conn.prepareStatement("select inStock from tbl_artikel where ID_artikel=?");
+            Article_stmt.setInt(1, IDarticle);
+            Article_stmt.execute();
+            ResultSet res = Article_stmt.getResultSet();
+            res.next();
+            return res.getInt("inStock");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 
-    @Override
-    public void setinStock(int amount) {
-        throw new RuntimeException("Not implemented yet");
+    public static void setinStock(int amount, int IDarticle) {
+        try {
+            Connection conn = JdbcDb.getConnection();
+            PreparedStatement Article_stmt = conn.prepareStatement("update tbl_artikel set inStock=? where ID_artikel=?");
+            Article_stmt.setInt(1, amount);
+            Article_stmt.setInt(2, IDarticle);
+            Article_stmt.executeUpdate();
+            return;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return;
+        }
     }
 
     @Override

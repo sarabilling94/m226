@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Article_InMemoryImpl extends Article {
     private String articleName;
-    private static final ArrayList<Article> articles  = new ArrayList<>();
+    private static final ArrayList<Article_InMemoryImpl> articles  = new ArrayList<>();
     private int IDarticle;
     private float price;
     private String color;

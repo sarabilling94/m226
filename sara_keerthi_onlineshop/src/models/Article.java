@@ -38,12 +38,6 @@ public abstract class Article {
 
     public abstract String getgender();
 
-
-    /** sets how many of this article are in stock. can't be negative */
-    public abstract void setinStock(int amount);
-
-    public abstract int getinStock();
-
     public abstract void delete();
 
 }
