@@ -1,6 +1,7 @@
 package models;
 
 import database.JdbcDb;
+import utils.ImpossibleBirthdateException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +11,12 @@ import java.util.Date;
 public class Customer_JdbcImpl extends Customer {
     private final int IDuser;
 
-    public Customer_JdbcImpl(String vorname, String nachname, String adresse, String email, String username, Date birthday, String phone, String gender, String passwort) throws SQLException {
+    public Customer_JdbcImpl(String vorname, String nachname, String adresse, String email, String username, Date birthday, String phone, String gender, String passwort) throws SQLException, ImpossibleBirthdateException {
+        Date today = java.util.Calendar.getInstance().getTime();
+        if(birthday.after(today)) {
+            throw new ImpossibleBirthdateException("Birthdate can't be in the future!");
+        }
+
         Connection conn = JdbcDb.getConnection();
         conn.setAutoCommit(false);
         User_JdbcImpl user = new User_JdbcImpl(vorname, nachname, adresse, email, username, passwort);

@@ -1,7 +1,10 @@
 package models;
 
+import utils.ImpossibleBirthdateException;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Employee_InMemoryImpl extends Employee{
@@ -12,8 +15,13 @@ public class Employee_InMemoryImpl extends Employee{
     private String gender;
     private boolean admin;
 
-    public Employee_InMemoryImpl(int IDuser, String vorname, String nachname, String adresse, String email, String username, String passwort, Date birthday, String phone, String gender, boolean admin){
+    public Employee_InMemoryImpl(int IDuser, String vorname, String nachname, String adresse, String email, String username, String passwort, Date birthday, String phone, String gender, boolean admin) throws ImpossibleBirthdateException {
         super();
+
+        Date today = java.util.Calendar.getInstance().getTime();
+        if(birthday.after(today)) {
+            throw new ImpossibleBirthdateException("Birthdate can't be in the future!");
+        }
         user = new User_InMemoryImpl(IDuser, vorname, nachname, adresse, email, username, passwort);
         this.birthday = birthday;
         this.phone = phone;

@@ -1,6 +1,7 @@
 package database;
 
 import models.*;
+import utils.ImpossibleBirthdateException;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -30,7 +31,7 @@ public class BackendInMemoryFactory extends BackendFactory {
         return new Customer_InMemoryImpl(IDuser, vorname, nachname, adresse, email, username, passwort);
     }
 
-    public Employee createEmployee(String vorname, String nachname, String adresse, String email, String username, String passwort, Date birthday, String phone, String gender, boolean admin) throws SQLException {
+    public Employee createEmployee(String vorname, String nachname, String adresse, String email, String username, String passwort, Date birthday, String phone, String gender, boolean admin) throws SQLException, ImpossibleBirthdateException {
         Random rand = new Random();
         int IDuser = rand.nextInt();
         return new Employee_InMemoryImpl(IDuser, vorname, nachname, adresse, email, username, passwort, birthday, phone, gender, admin);

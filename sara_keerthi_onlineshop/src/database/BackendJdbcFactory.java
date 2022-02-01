@@ -1,6 +1,7 @@
 package database;
 
 import models.*;
+import utils.ImpossibleBirthdateException;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -19,11 +20,11 @@ public class BackendJdbcFactory extends BackendFactory {
         return new User_JdbcImpl(vorname, nachname, adresse, email, username, passwort);
     }
 
-    public Customer createCustomer(String vorname, String nachname, String adresse, String email, String username, Date birthday, String phone, String gender, String passwort) throws SQLException{
+    public Customer createCustomer(String vorname, String nachname, String adresse, String email, String username, Date birthday, String phone, String gender, String passwort) throws SQLException, ImpossibleBirthdateException {
         return new Customer_JdbcImpl(vorname, nachname, adresse, email, username, birthday, phone, gender, passwort);
     }
 
-    public Employee createEmployee(String vorname, String nachname, String adresse, String email, String username, String passwort, Date geburtstag, String geschlecht, String telefon, boolean admin) throws SQLException{
+    public Employee createEmployee(String vorname, String nachname, String adresse, String email, String username, String passwort, Date geburtstag, String geschlecht, String telefon, boolean admin) throws SQLException, ImpossibleBirthdateException {
         return new Employee_JdbcImpl(vorname, nachname, adresse, email, username, passwort, geburtstag, geschlecht, telefon, admin);
     }
 
