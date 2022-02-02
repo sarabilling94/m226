@@ -1,5 +1,7 @@
 package models;
-
+/**
+ * Abstract Article Class
+ */
 public abstract class Article {
     private String articleName;
     private int IDarticle;

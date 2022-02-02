@@ -2,7 +2,9 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * In Memory implementation of Order
+ */
 public class Order_InMemoryImpl extends Order{
     private final static ArrayList<Order> orders = new ArrayList<>();
     private ArrayList<CartDetails> arrayOfDetails;

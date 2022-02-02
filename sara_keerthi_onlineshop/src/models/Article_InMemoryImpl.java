@@ -2,7 +2,9 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * In Memory implementation of Article
+ */
 public class Article_InMemoryImpl extends Article {
     private String articleName;
     private static final ArrayList<Article_InMemoryImpl> articles  = new ArrayList<>();

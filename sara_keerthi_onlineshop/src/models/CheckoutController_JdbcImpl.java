@@ -4,7 +4,9 @@ import database.JdbcDb;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+/**
+ * JDBC implementation of CheckoutController
+ */
 public class CheckoutController_JdbcImpl extends  CheckoutController {
     private int IDorder;
 

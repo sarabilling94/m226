@@ -5,7 +5,9 @@ import utils.ImpossibleBirthdateException;
 
 import java.sql.*;
 import java.util.Date;
-
+/**
+ * JDBC implementation of Employee
+ */
 public class Employee_JdbcImpl extends Employee{
     private final int IDuser;
 

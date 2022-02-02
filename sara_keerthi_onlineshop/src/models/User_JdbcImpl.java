@@ -5,7 +5,7 @@ import database.JdbcDb;
 import java.sql.*;
 
 /**
- * JDBC implementation of Person
+ * JDBC implementation of User
  */
 public class User_JdbcImpl extends User {
     private final int IDuser;
@@ -128,7 +128,6 @@ public class User_JdbcImpl extends User {
 
     @Override
     public void delete() {
-
         try {
             Connection conn = JdbcDb.getConnection();
             PreparedStatement User_stmt = conn.prepareStatement("delete from tbl_person where ID_User=?");

@@ -6,7 +6,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ * In Memory implementation of Employee
+ */
 public class Employee_InMemoryImpl extends Employee{
     private final User user;
     private static final ArrayList<Employee> employees  = new ArrayList<>();

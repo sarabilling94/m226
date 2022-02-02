@@ -2,7 +2,9 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * Abstract Order Class
+ */
 /** needed for checkout */
 public abstract class Order {
     private int IDorder;

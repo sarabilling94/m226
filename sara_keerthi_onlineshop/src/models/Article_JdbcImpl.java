@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.sql.*;
 
 /**
- * JDBC implementation of Person
+ * JDBC implementation of Article
  */
 public class Article_JdbcImpl extends Article {
     private final int IDarticle;

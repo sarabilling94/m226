@@ -8,7 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-
+/**
+ * JDBC implementation of Customer
+ */
 public class Customer_JdbcImpl extends Customer {
     private final int IDuser;
 

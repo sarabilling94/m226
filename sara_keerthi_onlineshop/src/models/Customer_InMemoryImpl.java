@@ -4,7 +4,9 @@ import utils.ImpossibleBirthdateException;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * In Memory implementation of Customer
+ */
 public class Customer_InMemoryImpl extends Customer {
     private static final ArrayList<Customer> customers  = new ArrayList<>();
     private final User user;

@@ -3,7 +3,9 @@ package models;
 import utils.OutOfStockException;
 
 import java.util.ArrayList;
-
+/**
+ * JDBC implementation of Cart
+ */
 /** the customers cart that contains the chosen articles */
 public class Cart_JdbcImpl {
     private ArrayList<CartDetails> arrayOfCartDetails;

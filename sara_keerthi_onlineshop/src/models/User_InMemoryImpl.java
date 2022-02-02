@@ -1,7 +1,9 @@
 package models;
 
 import java.util.ArrayList;
-
+/**
+ * In memory implementation of User
+ */
 public class User_InMemoryImpl extends User {
     private int IDuser;
     private static final ArrayList<User> users  = new ArrayList<>();

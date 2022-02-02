@@ -6,7 +6,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ * JDBC implementation of Order
+ */
 public class Order_JdbcImpl {
     private int IDorder;
     private java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());

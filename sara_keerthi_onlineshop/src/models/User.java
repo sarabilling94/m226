@@ -1,6 +1,8 @@
 package models;
 
-//* superclass for customer and employee class*/
+/**
+ * Abstract User Class
+ */
 abstract public class User {
     private int IDuser;
     private String userName;
