@@ -142,7 +142,21 @@ public class User_JdbcImpl extends User {
     //not implemented
     @Override
     public boolean verifyLogin(String username, String password) {
-        return true;
+        try {
+            Connection conn = JdbcDb.getConnection();
+            PreparedStatement User_stmt = conn.prepareStatement("select * from tbl_person where username=?");
+            User_stmt.setString(1, username);
+            User_stmt.execute();
+            ResultSet res = User_stmt.getResultSet();
+            res.next();
+            if (res.getString("passwort").equals(password)){
+                return true;
+            }
+            return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public int getIDuser() {
