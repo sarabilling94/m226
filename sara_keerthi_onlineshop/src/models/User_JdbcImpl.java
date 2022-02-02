@@ -52,6 +52,23 @@ public class User_JdbcImpl extends User {
         }
     }
 
+    public static User_InMemoryImpl getUserById(int IDuser){
+        try {
+            Connection conn = JdbcDb.getConnection();
+            PreparedStatement User_stmt = conn.prepareStatement("select * from tbl_person where ID_person=?");
+            User_stmt.setInt(1, IDuser);
+            User_stmt.execute();
+            ResultSet res = User_stmt.getResultSet();
+            res.next();
+            User_InMemoryImpl user = new User_InMemoryImpl(IDuser, res.getString("vorname"), res.getString("nachname"),
+                    res.getString("adresse"), res.getString("email"), res.getString("username"), res.getString("passwort"));
+            return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     @Override
     public void setfirstName(String firstName) {
         throw new RuntimeException("Not implemented yet");
@@ -120,7 +137,6 @@ public class User_JdbcImpl extends User {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     //not implemented

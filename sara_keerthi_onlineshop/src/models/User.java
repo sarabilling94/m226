@@ -34,6 +34,8 @@ abstract public class User {
 
     public abstract String getemail();
 
+    public abstract int getIDuser();
+
     public abstract void delete();
 
     public abstract boolean verifyLogin(String username, String password);

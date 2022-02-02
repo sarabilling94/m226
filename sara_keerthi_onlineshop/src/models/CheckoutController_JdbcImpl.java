@@ -3,8 +3,10 @@ package models;
 import database.JdbcDb;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class CheckoutController_JdbcImpl extends  CheckoutController {
+    private int IDorder;
 
     public CheckoutController_JdbcImpl(Cart_JdbcImpl cart) throws SQLException {
         Connection conn = JdbcDb.getConnection();
@@ -12,7 +14,7 @@ public class CheckoutController_JdbcImpl extends  CheckoutController {
 
         int IDuser = cart.getIDcustomer();
 
-        int IDorder = new Order_JdbcImpl(IDuser).getIDorder();
+        IDorder = new Order_JdbcImpl(IDuser).getIDorder();
 
         cart.getArrayOfCartDetails().forEach((c) ->{
             PreparedStatement checkout_stmt = null;
@@ -29,5 +31,45 @@ public class CheckoutController_JdbcImpl extends  CheckoutController {
                 e.printStackTrace();
             }
         });
+    }
+
+    public int getIDorder() {
+        return IDorder;
+    }
+
+    public static ArrayList<Integer> getFSarticlesByIDorder(int IDorder){
+        try {
+            Connection conn = JdbcDb.getConnection();
+            PreparedStatement checkoutcontroller_stmt = conn.prepareStatement("select * from tbl_bestellungsdetails where FS_bestellung=?");
+            checkoutcontroller_stmt.setInt(1, IDorder);
+            checkoutcontroller_stmt.execute();
+            ResultSet res = checkoutcontroller_stmt.getResultSet();
+            ArrayList<Integer> list = new ArrayList<>();
+            while(res.next()){
+                list.add(res.getInt("FS_artikel"));
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static ArrayList<Integer> getAmountByIDorder(int IDorder){
+        try {
+            Connection conn = JdbcDb.getConnection();
+            PreparedStatement checkoutcontroller_stmt = conn.prepareStatement("select * from tbl_bestellungsdetails where FS_bestellung=?");
+            checkoutcontroller_stmt.setInt(1, IDorder);
+            checkoutcontroller_stmt.execute();
+            ResultSet res = checkoutcontroller_stmt.getResultSet();
+            ArrayList<Integer> list = new ArrayList<>();
+            while(res.next()){
+                list.add(res.getInt("anzahl"));
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

@@ -1,6 +1,7 @@
 import database.BackendFactory;
 import database.BackendJdbcFactory;
 import models.*;
+import utils.ImpossibleBirthdateException;
 import utils.OutOfStockException;
 
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import java.util.Date;
 
 public class sara_keerthi_onlineshop {
 
-    public static void main(String[] args) throws SQLException, ParseException, OutOfStockException {
+    public static void main(String[] args) throws SQLException, ParseException, OutOfStockException, ImpossibleBirthdateException {
 
         BackendFactory backend = new BackendJdbcFactory();
 
@@ -22,13 +23,12 @@ public class sara_keerthi_onlineshop {
         // backend.createArticle("testarticle2", "f", "hose", (float)12.5, "red", 5);
 
         // // create customer
-        // Date date = new SimpleDateFormat("dd/MM/yyyy").parse("31/01/2022");
-        // backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232",
-        //        "f", "2asdad");
-//
-        // //create employee
-        // backend.createEmployee("testemploydee", "test", "test", "test",
-        //        "test", "sdfsdfs", date, "f", "234234234", true);
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse("31/01/2022");
+        //backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232", "f", "2asdad");
+
+        //create employee
+        backend.createEmployee("totallynewemployee", "test", "test", "test",
+               "test", "sdfsdfs", date, "f", "234234234", true);
 
 
         // get article from db
