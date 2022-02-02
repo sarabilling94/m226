@@ -24,9 +24,8 @@ public class sara_keerthi_onlineshop {
 
         // // create customer
         Date date = new SimpleDateFormat("dd/MM/yyyy").parse("31/01/2022");
-        // backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232",
-        //        "f", "2asdad");
-//
+        //backend.createCustomer("testcustomer", "test", "test", "test", "test", date, "2131232", "f", "2asdad");
+
         //create employee
         backend.createEmployee("totallynewemployee", "test", "test", "test",
                "test", "sdfsdfs", date, "f", "234234234", true);

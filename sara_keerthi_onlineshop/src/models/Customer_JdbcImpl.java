@@ -22,7 +22,7 @@ public class Customer_JdbcImpl extends Customer {
         conn.setAutoCommit(false);
         User_JdbcImpl user = new User_JdbcImpl(vorname, nachname, adresse, email, username, passwort);
         this.IDuser = user.getIDuser();
-        PreparedStatement customer_stmt = conn.prepareStatement("insert into tbl_kunde (ID_kunde, FS_person, geschlecht, geburtsdatum, telefon) values(?,?,?,?)");
+        PreparedStatement customer_stmt = conn.prepareStatement("insert into tbl_kunde (ID_kunde, FS_person, geschlecht, geburtsdatum, telefon) values(?,?,?,?,?)");
         customer_stmt.setInt(1, IDuser);
         customer_stmt.setInt(2, IDuser);
         customer_stmt.setString(3, gender);
